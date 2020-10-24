@@ -8,7 +8,7 @@
 
 <style>
 .header {
-    background-color: white;
+    background-color:rgb(172, 212, 245);;
     overflow: auto;
 }
 #headerImage{
@@ -21,38 +21,89 @@
     width: 100%;
     text-align: center;
 }
+.collapsible {
+  background-color: rgb(200, 211, 214);
+  color: black;
+  font-weight:bold;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
 </style>
 </head>
 
-<body>
-<div class="header">
-    <!-- Logo is of resolution 354 x 170 -->
-    <img src="logo.jpg" alt="Prosthetics Logo" id="headerImage">
-    <h1 id="headerText"> Welcome to the Recreational Prosthetics Databbase </h1>
-</div>
-
-<hr>
-<h1>
-    Choose a recreational activity
-</h1>
-
-<h1>
-    Customization Options
-</h1>
-<p>
-    Select left- or right- hand prosthetic: <br>
+<body style="background-color:rgb(172, 212, 245);">
+    <div class="header">
+        <!-- Logo is of resolution 354 x 170 -->
+        <img src="logo.jpg" alt="Prosthetics Logo" id="headerImage">
+        <h1 id="headerText"> Welcome to the Recreational Prosthetics Databbase </h1>
+    </div>
     
-    <!-- To also include specific dimensions/information regarding grip size?-->
-    Select size of prosthetic: <br>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;The traditional way of manufacturing of recreational prosthetics, which involves complex procedures like plaster casting, moulding, curing, remoulding, and finally fitting, is very time consuming, labour intensive, and expensive. 
+        Fortunately, 3D printing, a rapid prototyping technology that involves heating, exerting, and fusing the material layer-by-layer, has advanced to the point where it can create terminal devices for upper extremity prostheses for recreational activities (swim paddle, golf/hockey grips, weightlifting, etc.) relatively cheaply. It also has the benefit of faster manufacturing speed and less labour requirements. 
+        Nevertheless, there still is a significant cost associated with prosthetic recreational terminal devices that is not covered by provincial insurance (OHIP) and there is a steep learning curve to customize a design using CAD for the novice user. Customization (e.g., load-bearing, end-effector, size) may be especially important to make a 3D printed device that is safe for a range of users and particular activities. 
+        Furthermore, there are also concerns about the general safety and reliability of 3D printed devices in general as there are no regulations or standards that assess the structural integrity of 3D printed devices. This website is aimed at tackling this problem by providing free open source designs that have been vetted by our clinical team.
+        <br><br>
+        <b>Purpose:</b> Provide an easy-to-use selection tool to make printing and customizing cylinder-gripping recreational terminal device CAD designs for upper extremity amputees and doctors more accessible. 
+        This aims to save the user time and money while providing greater access to popular activities such as cycling, weightlifting, rowing, and kayaking.
+        <br><br>
+        <b>How to use:</b> Follow the instructions and recommendations in the below three steps. 
+        Choose a recreational activity and answer the required questions to receive a prosthetic customized for your recreational needs.
+    </p>
+    <button type="button" class="collapsible">Choose a recreational activity</button>
+    <div class="content">
+        <p>Placeholder for choosing recreational activity</p>
+    </div>
 
-    Select from recommended materials: <br>
+    <button type="button" class="collapsible">Customization Options</button>
+    <div class="content">
+        <p>
+            Select left- or right- hand prosthetic: <br>
+            <!-- To also include specific dimensions/information regarding grip size?-->
+            Select size of prosthetic: <br>
+            Select from recommended materials: <br>
+            Additional information: <br>
+        </p>
+    </div>
 
-    Additional information: <br>
-</p>
+    <button type="button" class="collapsible">Preview and download your design</button>
+    <div class="content">
+        <p>Placeholder for download preview and link</p>
+    </div>
 
-<h1>
-    Preview and download your design
-</h1>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 
 </body>
 </html>
