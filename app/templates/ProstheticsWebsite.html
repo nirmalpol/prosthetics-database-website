@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>customizationForm</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = stylesheet type = text/css href="{{url_for('static', filename ='mainStyle.css')}}">
+
+</head>
+
+<body style="background-color:rgb(172, 212, 245);overflow-x:hidden">
+    <div class="header">
+        <!-- Logo is of resolution 354 x 170 -->
+        <img src="{{ url_for('static', filename = 'logo.jpg') }}" alt="Prosthetics Logo" id="headerImage">
+        <h1 id="headerText"> Welcome to the Recreational Prosthetics Database </h1>
+    </div>
+    
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;The traditional way of manufacturing of recreational prosthetics, which involves complex procedures like plaster casting, moulding, curing, remoulding, and finally fitting, is very time consuming, labour intensive, and expensive. 
+        Fortunately, 3D printing, a rapid prototyping technology that involves heating, exerting, and fusing the material layer-by-layer, has advanced to the point where it can create terminal devices for upper extremity prostheses for recreational activities (swim paddle, golf/hockey grips, weightlifting, etc.) relatively cheaply. It also has the benefit of faster manufacturing speed and less labour requirements. 
+        Nevertheless, there still is a significant cost associated with prosthetic recreational terminal devices that is not covered by provincial insurance (OHIP) and there is a steep learning curve to customize a design using CAD for the novice user. Customization (e.g., load-bearing, end-effector, size) may be especially important to make a 3D printed device that is safe for a range of users and particular activities. 
+        Furthermore, there are also concerns about the general safety and reliability of 3D printed devices in general as there are no regulations or standards that assess the structural integrity of 3D printed devices. This website is aimed at tackling this problem by providing free open source designs that have been vetted by our clinical team.
+        <br><br>
+        <b>Purpose:</b> Provide an easy-to-use selection tool to make printing and customizing cylinder-gripping recreational terminal device CAD designs for upper extremity amputees and doctors more accessible. 
+        This aims to save the user time and money while providing greater access to popular activities such as cycling, weightlifting, rowing, and kayaking.
+        <br><br>
+        <b>How to use:</b> Follow the instructions and recommendations in the below three steps. 
+        Choose a recreational activity and answer the required questions to receive a prosthetic customized for your recreational needs.
+    </p>
+    
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- TO DO -->
+    <button type="button" class="collapsible">Choose a recreational activity</button>
+    <div class="content">
+        <p><b>Select a recreational activity</b></p>
+        <form>
+          <label for="activity"><b>Choose a Recreational Activity:</b></label>
+          <select id="activity" name="activity">
+            <option value="fishing">Fishing</option>
+            <option value="tennis">Tennis</option>
+            <option value="biking">Biking</option>
+          </select>
+          <input type="submit">
+        </form>
+      <br> <br>
+    </div>
+
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- TO DO -->
+    <button type="button" class="collapsible">Customization Options</button>
+    <div class="content">
+        <p>
+            <b>Select left- or right- hand prosthetic:</b><br>
+            <input type="radio" id="left" name="hand" value="left">
+            <label for="left">Left Hand</label><br>
+            <input type="radio" id="right" name="hand" value="right">
+            <label for="right">Right Hand</label><br>
+       
+            
+            <!-- To also include specific dimensions/information regarding grip size?-->
+            <b>Select size of prosthetic:</b><br>
+            <input type="radio" id="small" name="size" value="small">
+            <label for="small">Small</label><br>
+            <input type="radio" id="medium" name="size" value="medium">
+            <label for="medium">Medium</label><br>
+            <input type="radio" id="large" name="size" value="large">
+            <label for="large">Large</label><br>
+
+            <b>Select from recommended materials:</b><br>
+            <input type="radio" id="ABS" name="material" value="ABS">
+            <label for="ABS">ABS</label><br>
+            <input type="radio" id="PLA" name="material" value="PLA">
+            <label for="PLA">PLA</label><br>
+
+            <b>Additional information:</b> <br>
+        </p>
+    </div>
+
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- TO DO -->
+    <button type="button" class="collapsible">Preview and download your design</button>
+    <div class="content">
+        <p>Placeholder for download preview and link</p>
+    </div>
+
+
+
+
+<!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+</body>
+</html>
