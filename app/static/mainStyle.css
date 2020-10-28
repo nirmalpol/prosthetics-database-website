@@ -42,7 +42,10 @@ li a:hover {
 .header {
     background-color:rgb(255, 255, 255);
     overflow: auto;
-    height: 150px;
+    height: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
 }
 #headerImage{
     float: left;
@@ -64,6 +67,10 @@ li a:hover {
   margin: 0 auto;
 }
 
+#containerMainText{
+  font-size: large;
+  text-align: justify;
+}
 
 /* ------ For Collapsible ------*/
 
@@ -71,17 +78,17 @@ li a:hover {
   background-color: rgb(255, 255, 255);
   color: black;
   font-weight:bold;
+  font-size: large;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 15px;
 }
 
 .active, .collapsible:hover {
-  background-color: #555;
+  background-color: rgb(196, 196, 196);
 }
 
 .content {
