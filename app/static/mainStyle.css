@@ -1,5 +1,9 @@
+html {
+  font-family: sans-serif;
+}
+
 .header {
-    background-color:rgb(172, 212, 245);;
+    background-color:rgb(255, 255, 255);
     overflow: auto;
 }
 #headerImage{
@@ -13,7 +17,7 @@
     text-align: center;
 }
 .collapsible {
-  background-color: rgb(200, 211, 214);
+  background-color: rgb(255, 255, 255);
   color: black;
   font-weight:bold;
   cursor: pointer;
