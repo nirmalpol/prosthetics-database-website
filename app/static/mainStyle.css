@@ -72,6 +72,14 @@ li a:hover {
   text-align: justify;
 }
 
+/* ------- For image in button ------- */
+
+#dropdownArrow{
+  width: 25px;
+  float: right;
+  padding-right: 18px;
+}
+
 /* ------ For Collapsible ------*/
 
 .collapsible {
