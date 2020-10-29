@@ -20,7 +20,7 @@
 
   <ul>
     <li><a class="navBarActive" href="#Main">Main</a></li>
-    <li><a href="#About Us">About Us</a></li>
+    <li><a href="#About">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </div>
@@ -45,9 +45,8 @@
     <button type="button" class="collapsible">Choose a Recreational Activity 
       <img src="{{ url_for('static', filename = 'dropdownArrow.png') }}" alt="Dropdown Arrow" id="dropdownArrow"/></button>
     <div class="content">
-        <p><b>Select a recreational activity</b></p>
         <form>
-          <label for="activity"><b>Choose a Recreational Activity:</b></label>
+          <label for="activity">Choose a Recreational Activity:</label>
           <select id="activity" name="activity">
             <option value="fishing">Fishing</option>
             <option value="tennis">Tennis</option>
@@ -58,42 +57,77 @@
       <br> <br>
     </div>
 
+
     <!-- ----------------------------------------------------------------------------- -->
     <!-- TO DO -->
     <button type="button" class="collapsible">Customization Options
       <img src="{{ url_for('static', filename = 'dropdownArrow.png') }}" alt="Dropdown Arrow" id="dropdownArrow"/></button>
     <div class="content">
-            <div class="customizationFeature">
-            <div class="customizationText">Select left- or right-hand prosthetic:</div>
-             <div class="radioButton">
-              <input type="radio" id="left" name="hand" value="left">
-              <label for="left">Left Hand</label>
-              <input type="radio" id="right" name="hand" value="right">
-              <label for="right">Right Hand</label>
-            </div>
-          </div>
-            <!--
-            <input type="radio" id="left" name="hand" value="left">
-            <label for="left">Left Hand</label><br>
+      <div class="customizationFeature">
+        <div class="customizationFeatureTitle">
+          <b>Feature 1 (e.g. Side of Body):</b>
+        </div>
+        <div class="customizationFeatureRadio">
+          <div class="customizationFeatureRadioText">Select left- or right-hand prosthetic:</div>
+          <div class="radioButton">
+            <input type="radio" id="left" name="hand" value="left" checked>
+            <label for="left">Left Hand</label>
             <input type="radio" id="right" name="hand" value="right">
-            <label for="right">Right Hand</label><br>
-            -->
-            
-       
-            
-            <!-- To also include specific dimensions/information regarding grip size?-->
-            <div class="customizationFeature">
-              <div class="customizationText">Select size of prosthetic:</div>
-               <div class="radioButton">
-                <input type="radio" id="small" name="size" value="small">
-                <label for="small">Small</label>
-                <input type="radio" id="medium" name="size" value="medium">
-                <label for="medium">Medium</label>
-                <input type="radio" id="large" name="size" value="large">
-                <label for="large">Large</label>
-              </div>
-            </div>
-            
+            <label for="right">Right Hand</label>
+          </div>
+        </div>
+      </div>
+          
+          <!--
+          <input type="radio" id="left" name="hand" value="left">
+          <label for="left">Left Hand</label><br>
+          <input type="radio" id="right" name="hand" value="right">
+          <label for="right">Right Hand</label><br>
+          -->
+                              
+      <div class="customizationFeature">
+        <div class="customizationFeatureTitle">
+          <b>Feature 2 (e.g. Grip Size):</b>
+        </div>
+        <div class="customizationFeatureText">
+          The grip size refers to the diameter of the gripping mechanism, as seen in the figure below. <br>
+          <img src="{{ url_for('static', filename = 'gripSize.png') }}" alt="gripSize"/> <br>
+          Additional Information. E.g.: There is only one option available as the there is a universal size for kayaking bars.          
+        </div>
+        <div class="customizationFeatureRadio">
+          <div class="customizationFeatureRadioText">Select grip size of prosthetic:</div>
+          <div class="radioButton">
+            <input type="radio" id="smallGrip" name="gripSize" value="6cm" checked>
+            <label for="smallGrip">6cm</label>
+            <!--
+            <input type="radio" id="mediumGrup" name="gripSize" value="medium">
+            <label for="mediumGrup">Medium</label>
+            <input type="radio" id="largeGrip" name="gripSize" value="large">
+            <label for="largeGrip">Large</label> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="customizationFeature">
+        <div class="customizationFeatureTitle">
+          <b>Feature 3 (e.g. Arm Size):</b>
+        </div>
+        <div class="customizationFeatureText">
+          The arm size refers to the diameter of the prosthetic arm attachment, as seen in the figure below. <br>
+          <img src="{{ url_for('static', filename = 'armSize.png') }}" alt="armSize"/>
+        </div>
+        <div class="customizationFeatureRadio">
+          <div class="customizationFeatureRadioText">Select arm size of prosthetic:</div>
+          <div class="radioButton">
+            <input type="radio" id="smallArm" name="armSize" value="4cm" checked>
+            <label for="smallArm">4cm</label>
+            <input type="radio" id="mediumArm" name="armSize" value="6cm">
+            <label for="mediumArm">6cm</label>
+            <input type="radio" id="largeArm" name="armSize" value="7cm">
+            <label for="largeArm">7cm</label>
+          </div>
+        </div>
+      </div>
             
             <!--
             <div class="customizationText">Select size of prosthetic:</div><br>
@@ -116,6 +150,7 @@
         
     </div>
 
+
     <!-- ----------------------------------------------------------------------------- -->
     <!-- TO DO -->
     <button type="button" class="collapsible">Preview and Download Your Design
@@ -123,6 +158,7 @@
     <div class="content">
         <p>Placeholder for download preview and link</p>
     </div>
+
 </div>
 
 
