@@ -63,16 +63,40 @@
     <button type="button" class="collapsible">Customization Options
       <img src="{{ url_for('static', filename = 'dropdownArrow.png') }}" alt="Dropdown Arrow" id="dropdownArrow"/></button>
     <div class="content">
-        <p>
-            <b>Select left- or right- hand prosthetic:</b><br>
+            <div class="customizationFeature">
+            <div class="customizationText">Select left- or right-hand prosthetic:</div>
+             <div class="radioButton">
+              <input type="radio" id="left" name="hand" value="left">
+              <label for="left">Left Hand</label>
+              <input type="radio" id="right" name="hand" value="right">
+              <label for="right">Right Hand</label>
+            </div>
+          </div>
+            <!--
             <input type="radio" id="left" name="hand" value="left">
             <label for="left">Left Hand</label><br>
             <input type="radio" id="right" name="hand" value="right">
             <label for="right">Right Hand</label><br>
+            -->
+            
        
             
             <!-- To also include specific dimensions/information regarding grip size?-->
-            <b>Select size of prosthetic:</b><br>
+            <div class="customizationFeature">
+              <div class="customizationText">Select size of prosthetic:</div>
+               <div class="radioButton">
+                <input type="radio" id="small" name="size" value="small">
+                <label for="small">Small</label>
+                <input type="radio" id="medium" name="size" value="medium">
+                <label for="medium">Medium</label>
+                <input type="radio" id="large" name="size" value="large">
+                <label for="large">Large</label>
+              </div>
+            </div>
+            
+            
+            <!--
+            <div class="customizationText">Select size of prosthetic:</div><br>
             <input type="radio" id="small" name="size" value="small">
             <label for="small">Small</label><br>
             <input type="radio" id="medium" name="size" value="medium">
@@ -85,9 +109,11 @@
             <label for="ABS">ABS</label><br>
             <input type="radio" id="PLA" name="material" value="PLA">
             <label for="PLA">PLA</label><br>
-
-            <b>Additional information:</b> <br>
-        </p>
+            
+            <b>Additional information:</b> <br>   
+            -->     
+            
+        
     </div>
 
     <!-- ----------------------------------------------------------------------------- -->
