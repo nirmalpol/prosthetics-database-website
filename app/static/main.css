@@ -35,7 +35,12 @@ li#navBarActive a {
   color: rgb(255, 255, 255);
 }
 
-.navBar {
+li#navBarActive a:hover {
+  background-color: rgb(33, 113, 167);
+  color: rgb(255, 255, 255);
+}
+
+.pageHeader {
   background-color: rgb(255, 255, 255);
   overflow-x: "hidden";
 }
