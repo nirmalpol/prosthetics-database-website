@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename ='main.css')}}"
+    />
+
+    {% block head %} {% endblock %}
+  </head>
+
+  <body style="overflow-x: hidden">
+    <div class="navBar">
+      <div class="header">
+        <!-- Logo is of resolution 354 x 170 -->
+        <img
+          src="{{ url_for('static', filename = 'logo.jpg') }}"
+          alt="Prosthetics Logo"
+          id="headerImage"
+        />
+        <h1 id="headerText">
+          Welcome to the Recreational Terminal Device Database
+        </h1>
+      </div>
+
+      {% set navigation_bar = [
+      ('/', 'main', 'Main'),
+      ('/About', 'About', 'About'),
+      ('/Contact', 'Contact', 'Contact')]
+      %}
+
+      <ul id="navigation">
+        {% for href, id, text in navigation_bar %}
+          <li {% if id == active_page %} id="navBarActive" {% endif %}>
+              <a href="{{ href }}">{{ text }}</a></li>
+        {% endfor %}
+        </ul>
+
+
+    
+      {% block body %} {% endblock %}
+
+  </body>
+</html>

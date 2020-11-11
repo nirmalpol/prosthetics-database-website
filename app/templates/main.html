@@ -1,0 +1,170 @@
+{% extends 'base.html' %} {% set active_page = "main" %} {% block head %} {%
+endblock %} {% block body %}
+<div class="container">
+  <!-- ----------------------------------------------------------------------------- -->
+  <!-- TO DO -->
+  <p></p>
+  <button type="button" class="collapsible">
+    Choose a Recreational Activity
+    <img
+      src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
+      alt="Dropdown Arrow"
+      id="dropdownArrow"
+    />
+  </button>
+  <div class="content">
+    <form>
+      <label for="activity">Choose a Recreational Activity:</label>
+      <select id="activity" name="activity">
+        <option value="fishing">Fishing</option>
+        <option value="tennis">Tennis</option>
+        <option value="biking">Biking</option>
+      </select>
+      <input type="submit" />
+    </form>
+    <br />
+    <br />
+  </div>
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <!-- TO DO -->
+  <button type="button" class="collapsible">
+    Customization Options
+    <img
+      src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
+      alt="Dropdown Arrow"
+      id="dropdownArrow"
+    />
+  </button>
+  <div class="content">
+    <div class="customizationFeature">
+      <div class="customizationFeatureTitle">
+        <b>Feature 1 (e.g. Side of Body):</b>
+      </div>
+      <div class="customizationFeatureRadio">
+        <div class="customizationFeatureRadioText">
+          Select left- or right-hand prosthetic:
+        </div>
+        <div class="radioButton">
+          <input type="radio" id="left" name="hand" value="left" checked />
+          <label for="left">Left Hand</label>
+          <input type="radio" id="right" name="hand" value="right" />
+          <label for="right">Right Hand</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="customizationFeature">
+      <div class="customizationFeatureTitle">
+        <b>Feature 2 (e.g. Grip Size):</b>
+      </div>
+      <div class="customizationFeatureText">
+        The grip size refers to the diameter of the gripping mechanism, as seen
+        in the figure below. <br />
+        Additional Information. E.g.: There is only one option available as the
+        there is a universal size for kayaking bars. <br />
+        <img
+          src="{{ url_for('static', filename = 'gripSize.png') }}"
+          alt="gripSize"
+        />
+      </div>
+      <div class="customizationFeatureRadio">
+        <div class="customizationFeatureRadioText">
+          Select grip size of prosthetic:
+        </div>
+        <div class="radioButton">
+          <input
+            type="radio"
+            id="smallGrip"
+            name="gripSize"
+            value="6cm"
+            checked
+          />
+          <label for="smallGrip">6cm</label>
+          <!--
+            <input type="radio" id="mediumGrup" name="gripSize" value="medium">
+            <label for="mediumGrup">Medium</label>
+            <input type="radio" id="largeGrip" name="gripSize" value="large">
+            <label for="largeGrip">Large</label> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="customizationFeature">
+      <div class="customizationFeatureTitle">
+        <b>Feature 3 (e.g. Arm Size):</b>
+      </div>
+      <div class="customizationFeatureText">
+        The arm size refers to the diameter of the prosthetic arm attachment, as
+        seen in the figure below. <br />
+        <img
+          src="{{ url_for('static', filename = 'armSize.png') }}"
+          alt="armSize"
+        />
+      </div>
+      <div class="customizationFeatureRadio">
+        <div class="customizationFeatureRadioText">
+          Select arm size of prosthetic:
+        </div>
+        <div class="radioButton">
+          <input
+            type="radio"
+            id="smallArm"
+            name="armSize"
+            value="4cm"
+            checked
+          />
+          <label for="smallArm">4cm</label>
+          <input type="radio" id="mediumArm" name="armSize" value="6cm" />
+          <label for="mediumArm">6cm</label>
+          <input type="radio" id="largeArm" name="armSize" value="7cm" />
+          <label for="largeArm">7cm</label>
+        </div>
+      </div>
+    </div>
+
+    <!--   
+            <b>Select from recommended materials:</b><br>
+            <input type="radio" id="ABS" name="material" value="ABS">
+            <label for="ABS">ABS</label><br>
+            <input type="radio" id="PLA" name="material" value="PLA">
+            <label for="PLA">PLA</label><br>
+            
+            <b>Additional information:</b> <br>
+    -->
+  </div>
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <!-- TO DO -->
+  <button type="button" class="collapsible">
+    Preview and Download Your Design
+    <img
+      src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
+      alt="Dropdown Arrow"
+      id="dropdownArrow"
+    />
+  </button>
+  <div class="content">
+    <p>Placeholder for download preview and link</p>
+  </div>
+</div>
+
+<!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+
+{% endblock %}

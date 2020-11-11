@@ -33,7 +33,7 @@ def index():
     '''
 
 
-    return render_template('ProstheticsWebsite.html')
+    return render_template('main.html')
 
 
 
@@ -68,3 +68,11 @@ def database(parameters):
         even further and maybe reconsider this approach later on.
         
     '''
+
+@app.route('/About')
+def toAboutPage():
+    return render_template('About.html')
+
+@app.route('/Contact')
+def toContactPage():
+    return render_template('Contact.html')
