@@ -1,50 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>customizationForm</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='mainStyle.css')}}">
- 
-</head>
+  <head>
+    <title>customizationForm</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename ='main.css')}}"
+    />
+  </head>
 
+  <body style="overflow-x: hidden">
+    <div class="navBar">
+      <div class="header">
+        <!-- Logo is of resolution 354 x 170 -->
+        <img
+          src="{{ url_for('static', filename = 'logo.jpg') }}"
+          alt="Prosthetics Logo"
+          id="headerImage"
+        />
+        <h1 id="headerText">
+          Welcome to the Recreational Terminal Device Database
+        </h1>
+      </div>
 
-<body style="overflow-x:hidden">
+      <ul>
+        <li><a class="navBarActive" href="#Main">Main</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
 
-<div class="navBar">
-  <div class="header">
-    <!-- Logo is of resolution 354 x 170 -->
-    <img src="{{ url_for('static', filename = 'logo.jpg') }}" alt="Prosthetics Logo" id="headerImage">
-    <h1 id="headerText"> Welcome to the Recreational Prosthetics Database </h1>
-  </div>
+    <div class="container">
+      <p id="containerMainText">
+        &nbsp;&nbsp;&nbsp;&nbsp;The traditional way of manufacturing of
+        recreational terminal devices, which involves complex procedures like
+        plaster casting, moulding, curing, remoulding, and finally fitting, is
+        very time consuming, labour intensive, and expensive. Fortunately, 3D
+        printing, a rapid prototyping technology that involves heating,
+        exerting, and fusing the material layer-by-layer, has advanced to the
+        point where it can create terminal devices for upper extremity
+        prostheses for recreational activities (swim paddle, golf/hockey grips,
+        weightlifting, etc.) relatively cheaply. It also has the benefit of
+        faster manufacturing speed and less labour requirements. Nevertheless,
+        there still is a significant cost associated with prosthetic
+        recreational terminal devices that is not covered by provincial
+        insurance (OHIP) and there is a steep learning curve to customize a
+        design using CAD for the novice user. Customization (e.g., load-bearing,
+        end-effector, size) may be especially important to make a 3D printed
+        device that is safe for a range of users and particular activities.
+        Furthermore, there are also concerns about the general safety and
+        reliability of 3D printed devices in general as there are no regulations
+        or standards that assess the structural integrity of 3D printed devices.
+        This website is aimed at tackling this problem by providing free open
+        source designs that have been vetted by our clinical team.
+        <br /><br />
+        <b>Purpose:</b> To provide open-source 3D-printable recreational
+        terminal devices to individuals with upper limb amputations that reduces
+        the costs of obtaining a prosthetic while allowing size scaling for
+        children and adults. printing <br /><br />
+        <b>How to use:</b> Follow the instructions and recommendations in the
+        below three steps. Choose a recreational activity and answer the
+        required questions to receive a terminal device customized for your
+        recreational needs.
+      </p>
 
-  <ul>
-    <li><a class="navBarActive" href="#Main">Main</a></li>
-    <li><a href="#About">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</div>
-
-<div class="container">
-    <p id="containerMainText">
-      &nbsp;&nbsp;&nbsp;&nbsp;The traditional way of manufacturing of recreational prosthetics, which involves complex procedures like plaster casting, moulding, curing, remoulding, and finally fitting, is very time consuming, labour intensive, and expensive. 
-      Fortunately, 3D printing, a rapid prototyping technology that involves heating, exerting, and fusing the material layer-by-layer, has advanced to the point where it can create terminal devices for upper extremity prostheses for recreational activities (swim paddle, golf/hockey grips, weightlifting, etc.) relatively cheaply. It also has the benefit of faster manufacturing speed and less labour requirements. 
-      Nevertheless, there still is a significant cost associated with prosthetic recreational terminal devices that is not covered by provincial insurance (OHIP) and there is a steep learning curve to customize a design using CAD for the novice user. Customization (e.g., load-bearing, end-effector, size) may be especially important to make a 3D printed device that is safe for a range of users and particular activities. 
-      Furthermore, there are also concerns about the general safety and reliability of 3D printed devices in general as there are no regulations or standards that assess the structural integrity of 3D printed devices. This website is aimed at tackling this problem by providing free open source designs that have been vetted by our clinical team.
-      <br><br>
-      <b>Purpose:</b> Provide an easy-to-use selection tool to make printing and customizing cylinder-gripping recreational terminal device CAD designs for upper extremity amputees and doctors more accessible. 
-      This aims to save the user time and money while providing greater access to popular activities such as cycling, weightlifting, rowing, and kayaking.
-      <br><br>
-      <b>How to use:</b> Follow the instructions and recommendations in the below three steps. 
-      Choose a recreational activity and answer the required questions to receive a prosthetic customized for your recreational needs.
-   </p>
-
-
-       <!-- ----------------------------------------------------------------------------- -->
-    <!-- TO DO -->
-    <button type="button" class="collapsible">Choose a Recreational Activity 
-      <img src="{{ url_for('static', filename = 'dropdownArrow.png') }}" alt="Dropdown Arrow" id="dropdownArrow"/></button>
-    <div class="content">
+      <!-- ----------------------------------------------------------------------------- -->
+      <!-- TO DO -->
+      <button type="button" class="collapsible">
+        Choose a Recreational Activity
+        <img
+          src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
+          alt="Dropdown Arrow"
+          id="dropdownArrow"
+        />
+      </button>
+      <div class="content">
         <form>
           <label for="activity">Choose a Recreational Activity:</label>
           <select id="activity" name="activity">
@@ -52,78 +84,110 @@
             <option value="tennis">Tennis</option>
             <option value="biking">Biking</option>
           </select>
-          <input type="submit">
+          <input type="submit" />
         </form>
-      <br> <br>
-    </div>
+        <br />
+        <br />
+      </div>
 
-
-    <!-- ----------------------------------------------------------------------------- -->
-    <!-- TO DO -->
-    <button type="button" class="collapsible">Customization Options
-      <img src="{{ url_for('static', filename = 'dropdownArrow.png') }}" alt="Dropdown Arrow" id="dropdownArrow"/></button>
-    <div class="content">
-      <div class="customizationFeature">
-        <div class="customizationFeatureTitle">
-          <b>Feature 1 (e.g. Side of Body):</b>
-        </div>
-        <div class="customizationFeatureRadio">
-          <div class="customizationFeatureRadioText">Select left- or right-hand prosthetic:</div>
-          <div class="radioButton">
-            <input type="radio" id="left" name="hand" value="left" checked>
-            <label for="left">Left Hand</label>
-            <input type="radio" id="right" name="hand" value="right">
-            <label for="right">Right Hand</label>
+      <!-- ----------------------------------------------------------------------------- -->
+      <!-- TO DO -->
+      <button type="button" class="collapsible">
+        Customization Options
+        <img
+          src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
+          alt="Dropdown Arrow"
+          id="dropdownArrow"
+        />
+      </button>
+      <div class="content">
+        <div class="customizationFeature">
+          <div class="customizationFeatureTitle">
+            <b>Feature 1 (e.g. Side of Body):</b>
+          </div>
+          <div class="customizationFeatureRadio">
+            <div class="customizationFeatureRadioText">
+              Select left- or right-hand prosthetic:
+            </div>
+            <div class="radioButton">
+              <input type="radio" id="left" name="hand" value="left" checked />
+              <label for="left">Left Hand</label>
+              <input type="radio" id="right" name="hand" value="right" />
+              <label for="right">Right Hand</label>
+            </div>
           </div>
         </div>
-      </div>
-          
-                            
-      <div class="customizationFeature">
-        <div class="customizationFeatureTitle">
-          <b>Feature 2 (e.g. Grip Size):</b>
-        </div>
-        <div class="customizationFeatureText">
-          The grip size refers to the diameter of the gripping mechanism, as seen in the figure below. <br>
-          Additional Information. E.g.: There is only one option available as the there is a universal size for kayaking bars. <br>
-          <img src="{{ url_for('static', filename = 'gripSize.png') }}" alt="gripSize"/>
-        </div>
-        <div class="customizationFeatureRadio">
-          <div class="customizationFeatureRadioText">Select grip size of prosthetic:</div>
-          <div class="radioButton">
-            <input type="radio" id="smallGrip" name="gripSize" value="6cm" checked>
-            <label for="smallGrip">6cm</label>
-            <!--
+
+        <div class="customizationFeature">
+          <div class="customizationFeatureTitle">
+            <b>Feature 2 (e.g. Grip Size):</b>
+          </div>
+          <div class="customizationFeatureText">
+            The grip size refers to the diameter of the gripping mechanism, as
+            seen in the figure below. <br />
+            Additional Information. E.g.: There is only one option available as
+            the there is a universal size for kayaking bars. <br />
+            <img
+              src="{{ url_for('static', filename = 'gripSize.png') }}"
+              alt="gripSize"
+            />
+          </div>
+          <div class="customizationFeatureRadio">
+            <div class="customizationFeatureRadioText">
+              Select grip size of prosthetic:
+            </div>
+            <div class="radioButton">
+              <input
+                type="radio"
+                id="smallGrip"
+                name="gripSize"
+                value="6cm"
+                checked
+              />
+              <label for="smallGrip">6cm</label>
+              <!--
             <input type="radio" id="mediumGrup" name="gripSize" value="medium">
             <label for="mediumGrup">Medium</label>
             <input type="radio" id="largeGrip" name="gripSize" value="large">
             <label for="largeGrip">Large</label> -->
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="customizationFeature">
-        <div class="customizationFeatureTitle">
-          <b>Feature 3 (e.g. Arm Size):</b>
-        </div>
-        <div class="customizationFeatureText">
-          The arm size refers to the diameter of the prosthetic arm attachment, as seen in the figure below. <br>
-          <img src="{{ url_for('static', filename = 'armSize.png') }}" alt="armSize"/>
-        </div>
-        <div class="customizationFeatureRadio">
-          <div class="customizationFeatureRadioText">Select arm size of prosthetic:</div>
-          <div class="radioButton">
-            <input type="radio" id="smallArm" name="armSize" value="4cm" checked>
-            <label for="smallArm">4cm</label>
-            <input type="radio" id="mediumArm" name="armSize" value="6cm">
-            <label for="mediumArm">6cm</label>
-            <input type="radio" id="largeArm" name="armSize" value="7cm">
-            <label for="largeArm">7cm</label>
+        <div class="customizationFeature">
+          <div class="customizationFeatureTitle">
+            <b>Feature 3 (e.g. Arm Size):</b>
+          </div>
+          <div class="customizationFeatureText">
+            The arm size refers to the diameter of the prosthetic arm
+            attachment, as seen in the figure below. <br />
+            <img
+              src="{{ url_for('static', filename = 'armSize.png') }}"
+              alt="armSize"
+            />
+          </div>
+          <div class="customizationFeatureRadio">
+            <div class="customizationFeatureRadioText">
+              Select arm size of prosthetic:
+            </div>
+            <div class="radioButton">
+              <input
+                type="radio"
+                id="smallArm"
+                name="armSize"
+                value="4cm"
+                checked
+              />
+              <label for="smallArm">4cm</label>
+              <input type="radio" id="mediumArm" name="armSize" value="6cm" />
+              <label for="mediumArm">6cm</label>
+              <input type="radio" id="largeArm" name="armSize" value="7cm" />
+              <label for="largeArm">7cm</label>
+            </div>
           </div>
         </div>
-      </div>
-     
-   <!--   
+
+        <!--   
             <b>Select from recommended materials:</b><br>
             <input type="radio" id="ABS" name="material" value="ABS">
             <label for="ABS">ABS</label><br>
@@ -132,39 +196,39 @@
             
             <b>Additional information:</b> <br>
     -->
-   
-    </div>
+      </div>
 
-
-    <!-- ----------------------------------------------------------------------------- -->
-    <!-- TO DO -->
-    <button type="button" class="collapsible">Preview and Download Your Design
-      <img src="{{ url_for('static', filename = 'dropdownArrow.png') }}" alt="Dropdown Arrow" id="dropdownArrow"/></button>
-    <div class="content">
+      <!-- ----------------------------------------------------------------------------- -->
+      <!-- TO DO -->
+      <button type="button" class="collapsible">
+        Preview and Download Your Design
+        <img
+          src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
+          alt="Dropdown Arrow"
+          id="dropdownArrow"
+        />
+      </button>
+      <div class="content">
         <p>Placeholder for download preview and link</p>
+      </div>
     </div>
 
-</div>
+    <!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
 
-
-<!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
-
-
-</body>
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
