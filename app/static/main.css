@@ -199,8 +199,14 @@ li#navBarActive a:hover {
   -ms-transform: translateY(-50%);
   transform: translateY(50%);
 }
+/*------------- For Contact Us Preview ------------*/
+#contactUsEmail {
+  color: #0000ee;
+  text-decoration: underline;
+  display: inline;
+}
 
-/*----- For Section 3 Preview -----*/
+/*------------- For Section 3 Preview ------------*/
 canvas {
   display: block;
   max-width: 60em;
