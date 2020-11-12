@@ -1,10 +1,6 @@
 from app import app
 from flask import render_template, url_for, flash, redirect, request
 
-@app.route('/test1')
-def index1():
-    return render_template('test1.html')
-
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():

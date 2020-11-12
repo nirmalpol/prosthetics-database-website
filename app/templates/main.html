@@ -154,15 +154,18 @@ endblock %} {% block body %}
     </div>
 
     <script type="module">
-      import * as THREE from "../static/build/three.module.js";
+      // import * as THREE from "../static/build/three.module.js";
+      // import { OrbitControls } from "../static/jsm/OrbitControls.js";
+      // import { STLExporter } from "../static/jsm/STLExporter.js";
+      // import Stats from "../static/jsm/stats.module.js";
+      // import { STLLoader } from "../static/jsm/STLLoader.js";
 
-      import { OrbitControls } from "../static/jsm/OrbitControls.js";
-      import { STLExporter } from "../static/jsm/STLExporter.js";
+      import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
+      import { OrbitControls } from "{{ url_for('static', filename = 'jsm/OrbitControls.js') }}";
+      import { STLExporter } from "{{ url_for('static', filename = 'jsm/STLExporter.js') }}";
+      import Stats from "{{ url_for('static', filename = 'jsm/stats.module.js') }}";
+      import { STLLoader } from "{{ url_for('static', filename = 'jsm/STLLoader.js') }}";
 
-      import Stats from "../static/jsm/stats.module.js";
-      import { STLLoader } from "../static/jsm/STLLoader.js";
-
-      console.log(THREE);
       let container, stats;
 
       let scene, camera, renderer, exporter, mesh, cameraTarget;
