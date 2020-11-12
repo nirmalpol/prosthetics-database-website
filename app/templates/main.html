@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% set active_page = "main" %} {% block head %} {%
 endblock %} {% block body %}
+
 <div class="container">
   <!-- ----------------------------------------------------------------------------- -->
   <!-- TO DO -->
@@ -145,15 +146,23 @@ endblock %} {% block body %}
     />
   </button>
   <div class="content">
+    <div id="info">
+      <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a>
+      webgl - exporter - stl<br /><br />
+      <button id="exportASCII">export ASCII</button>
+      <button id="exportBinary">export binary</button>
+    </div>
+
     <script type="module">
-      import * as THREE from "../build/three.module.js";
+      import * as THREE from "../static/build/three.module.js";
 
-      import { OrbitControls } from "./jsm/OrbitControls.js";
-      import { STLExporter } from "./jsm/STLExporter.js";
+      import { OrbitControls } from "../static/jsm/OrbitControls.js";
+      import { STLExporter } from "../static/jsm/STLExporter.js";
 
-      import Stats from "./jsm/stats.module.js";
-      import { STLLoader } from "./jsm/STLLoader.js";
+      import Stats from "../static/jsm/stats.module.js";
+      import { STLLoader } from "../static/jsm/STLLoader.js";
 
+      console.log(THREE);
       let container, stats;
 
       let scene, camera, renderer, exporter, mesh, cameraTarget;
@@ -224,20 +233,22 @@ endblock %} {% block body %}
           specular: 0x111111,
           shininess: 200,
         });
-        loader.load("./models/biking/Adaptador_Manubrio_v3.stl", function (
-          geometry
-        ) {
-          const mesh = new THREE.Mesh(geometry, material);
 
-          mesh.position.set(0, -0.37, -0.6);
-          mesh.rotation.set(-Math.PI / 2, 0, 0);
-          mesh.scale.set(1, 1, 1);
+        loader.load(
+          "{{ url_for('static', filename = 'models/biking/Adaptador_Manubrio_v3.stl') }}",
+          function (geometry) {
+            const mesh = new THREE.Mesh(geometry, material);
 
-          mesh.castShadow = true;
-          mesh.receiveShadow = true;
+            mesh.position.set(0, -0.37, -0.6);
+            mesh.rotation.set(-Math.PI / 2, 0, 0);
+            mesh.scale.set(1, 1, 1);
 
-          scene.add(mesh);
-        });
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+
+            scene.add(mesh);
+          }
+        );
 
         //
 
@@ -325,24 +336,24 @@ endblock %} {% block body %}
       }
     </script>
   </div>
+
+  <!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+  {% endblock %}
 </div>
-
-<!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
-<script>
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
-</script>
-
-{% endblock %}
