@@ -137,29 +137,17 @@ endblock %} {% block body %}
 
   <!-- ----------------------------------------------------------------------------- -->
   <!-- TO DO -->
-  <button type="button" class="collapsible">
+  <div class="previewHeader">Preview and Download Your Design:</div>
+  <!-- <button type="button" class="collapsible">
     Preview and Download Your Design
     <img
       src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
       alt="Dropdown Arrow"
       id="dropdownArrow"
     />
-  </button>
+  </button> -->
   <div class="content">
-    <div id="info">
-      <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a>
-      webgl - exporter - stl<br /><br />
-      <button id="exportASCII">export ASCII</button>
-      <button id="exportBinary">export binary</button>
-    </div>
-
     <script type="module">
-      // import * as THREE from "../static/build/three.module.js";
-      // import { OrbitControls } from "../static/jsm/OrbitControls.js";
-      // import { STLExporter } from "../static/jsm/STLExporter.js";
-      // import Stats from "../static/jsm/stats.module.js";
-      // import { STLLoader } from "../static/jsm/STLLoader.js";
-
       import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
       import { OrbitControls } from "{{ url_for('static', filename = 'jsm/OrbitControls.js') }}";
       import { STLExporter } from "{{ url_for('static', filename = 'jsm/STLExporter.js') }}";
@@ -184,7 +172,6 @@ endblock %} {% block body %}
 
         scene = new THREE.Scene();
         scene.background = new THREE.Color(0xa0a0a0);
-        scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
 
         exporter = new STLExporter();
 
@@ -217,17 +204,6 @@ endblock %} {% block body %}
         grid.material.opacity = 0.2;
         grid.material.transparent = true;
         scene.add(grid);
-
-        // export mesh
-        /*
-        const geometry = new THREE.BoxBufferGeometry(50, 50, 50);
-        const material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
-
-        mesh = new THREE.Mesh(geometry, material);
-        mesh.castShadow = true;
-        mesh.position.y = 25;
-        scene.add(mesh);
-		*/
 
         // Binary files
         const loader = new STLLoader();
@@ -270,12 +246,6 @@ endblock %} {% block body %}
         //
 
         window.addEventListener("resize", onWindowResize, false);
-
-        const buttonExportASCII = document.getElementById("exportASCII");
-        buttonExportASCII.addEventListener("click", exportASCII);
-
-        const buttonExportBinary = document.getElementById("exportBinary");
-        buttonExportBinary.addEventListener("click", exportBinary);
       }
 
       function onWindowResize() {
@@ -291,36 +261,6 @@ endblock %} {% block body %}
         renderer.render(scene, camera);
       }
 
-      function exportASCII() {
-        const result = exporter.parse(mesh);
-        saveString(result, "box.stl");
-      }
-
-      function exportBinary() {
-        const result = exporter.parse(mesh, { binary: true });
-        saveArrayBuffer(result, "box.stl");
-      }
-
-      const link = document.createElement("a");
-      link.style.display = "none";
-      document.body.appendChild(link);
-
-      function save(blob, filename) {
-        link.href = URL.createObjectURL(blob);
-        link.download = filename;
-        link.click();
-      }
-
-      function saveString(text, filename) {
-        save(new Blob([text], { type: "text/plain" }), filename);
-      }
-
-      function saveArrayBuffer(buffer, filename) {
-        save(
-          new Blob([buffer], { type: "application/octet-stream" }),
-          filename
-        );
-      }
       function resizeCanvasToDisplaySize() {
         const canvas = renderer.domElement;
         // look up the size the canvas is being displayed
@@ -340,15 +280,15 @@ endblock %} {% block body %}
     </script>
   </div>
 
-  <!-- <script type=text/javascript src="{{url_for('static', filename='collapsible.js')}}"></script> -->
+  <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
   <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+    let coll = document.getElementsByClassName("collapsible");
+    let i;
 
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
-        var content = this.nextElementSibling;
+        let content = this.nextElementSibling;
         if (content.style.display === "block") {
           content.style.display = "none";
         } else {

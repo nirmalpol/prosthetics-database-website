@@ -206,6 +206,25 @@ li#navBarActive a:hover {
   display: inline;
 }
 
+/* ------ For Section 3 ------*/
+
+.previewHeader {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-weight: bold;
+  font-size: x-large;
+  padding: 18px;
+  width: 100%;
+
+  text-align: left;
+  outline: none;
+
+  border: 1px solid black;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
 /*------------- For Section 3 Preview ------------*/
 canvas {
   display: block;
