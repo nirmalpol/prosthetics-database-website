@@ -19,6 +19,7 @@ endblock %} {% block body %}
         <option value="fishing">Fishing</option>
         <option value="tennis">Tennis</option>
         <option value="biking">Biking</option>
+        <option value="Testing">Testing</option>
       </select>
       <input type="submit" />
     </form>
@@ -57,32 +58,7 @@ endblock %} {% block body %}
       <div class="customizationFeatureTitle">
         <b>Size</b>
       </div>
-      <table class="customizationSizeTable">
-        <tr>
-          <th>Size</th>
-          <th>Length (cm)</th>
-          <th>Width (cm)</th>
-          <th>Wrist Diameter (cm)</th>
-        </tr>
-        <tr>
-          <td>Child</td>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>Teenager</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-        </tr>
-        <tr>
-          <td>Adult</td>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-        </tr>
-      </table>
+      <table id="customizationSizeTable"></table>
       <br />
       <div class="customizationFeatureText">
         The wrist diameter refers to the diameter of the prosthetic arm
@@ -279,6 +255,62 @@ endblock %} {% block body %}
       });
     }
   </script>
+
+  <!-- script to handle creating customizaiton table/information from the .json file -->
+  <script>
+    let data = null
+    fetch("{{ url_for('static', filename = 'main.json') }}")
+					.then((file) => file.json())
+					.then((dataJSON) => {
+            data = dataJSON;
+            createCustomizationTable();   // in fetch() to ensure synchronous
+            })
+					.catch((err) => {
+						console.log(err);
+          });
+    
+    // assume chosen activity is "testing"
+    let activity = "Testing";
+
+    function createCustomizationTable(){
+      let tbl = document.getElementById("customizationSizeTable");
+      tbl.innerHTML = "";
+      let row, col;
+      // load table header information
+      let thead = document.createElement("thead")
+      row = document.createElement("tr");
+      col = document.createElement("th");
+      col.innerHTML = ""; // for first empty header cell
+      row.appendChild(col);
+      for(let i = 0; i < (data[activity]["Dimension"].length); i++){
+        col = document.createElement("th");
+        col.innerHTML = data[activity]["Dimension"][i];
+        row.appendChild(col);
+      }
+      thead.appendChild(row);
+      tbl.appendChild(thead);
+
+      // load table body information
+      let tbody = document.createElement("tbody");
+      for(let i = 0; i < data[activity]["Size"].length; i++){
+        row = document.createElement("tr");
+        for(let j = 0; j < (data[activity]["Dimension"].length+1); j++){
+          col = document.createElement("td");
+          if (j == 0){
+            col.innerHTML = data[activity]["Size"][i];
+          }
+          else{
+            col.innerHTML = data[activity]["Measurement"][i][j-1];
+          }
+          row.appendChild(col);
+        }
+        tbody.appendChild(row); 
+      }
+      tbl.appendChild(tbody);
+    }
+
+  </script>
+
 
   {% endblock %}
 </div>

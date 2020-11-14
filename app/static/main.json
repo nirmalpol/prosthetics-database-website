@@ -2,8 +2,20 @@
     "Kayaking": {
         "Side of Body": ["Right", "Left"],
         "Size": ["Child", "Teenager", "Adult"],
-        "Dimension": ["Length", "Width", "Wrist Diameter"],
+        "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+        "Coordinates": {
+            "Kayaking/Right/Child/part1.stl": [0, 0, 0],
+            "Kayaking/Right/Child/part2.stl": [1, 2, 3],
+            "Kayaking/Right/Child/part3.stl": [4, 5, 6]
+        }
+    },
+
+    "Testing": {
+        "Side of Body": ["Right", "Left"],
+        "Size": ["Child", "Teenager", "Adult"],
+        "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
+        "Measurement": [[11, 22, 33], [85, 321, 5], [77, 88, 99]],
         "Coordinates": {
             "Kayaking/Right/Child/part1.stl": [0, 0, 0],
             "Kayaking/Right/Child/part2.stl": [1, 2, 3],

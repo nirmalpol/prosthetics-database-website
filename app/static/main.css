@@ -192,24 +192,23 @@ li#navBarActive a:hover {
   transform: translateY(50%);
 }
 
-.customizationSizeTable {
+#customizationSizeTable {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   border-collapse: collapse;
 }
-.customizationSizeTable th {
+#customizationSizeTable th,
+td {
   text-align: center;
   padding: 10px;
   width: 25%;
 }
-.customizationSizeTable td {
-  text-align: center;
-  padding: 10px;
-  width: 25%;
-}
-.customizationSizeTable tr:nth-child(even) {
+#customizationSizeTable tr:nth-child(even) {
   background-color: #dddddd;
+}
+#customizationSizeTable td:first-child {
+  font-weight: bold;
 }
 
 /*------------- For Contact Us Preview ------------*/
@@ -227,7 +226,7 @@ li#navBarActive a:hover {
   font-weight: bold;
   font-size: x-large;
   padding: 18px;
-  width: 100%;
+  max-width: 100%;
 
   text-align: left;
   outline: none;
