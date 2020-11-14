@@ -167,10 +167,11 @@ li#navBarActive a:hover {
 }
 
 .customizationFeatureText img {
-  width: 10%;
+  width: 40%;
   display: block;
   margin: 0 auto;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 #customizationFeatureFig {
@@ -216,6 +217,7 @@ td {
   color: #0000ee;
   text-decoration: underline;
   display: inline;
+  font-size: large;
 }
 
 /* ------ For Section 3 ------*/
