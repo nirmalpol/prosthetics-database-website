@@ -40,7 +40,7 @@ endblock %} {% block body %}
   <div class="content">
     <div class="customizationFeature">
       <div class="customizationFeatureTitle">
-        <b>Feature 1 (e.g. Side of Body):</b>
+        <b>Side of Body</b>
       </div>
       <div class="customizationFeatureRadio">
         <div class="customizationFeatureRadioText">
@@ -54,72 +54,69 @@ endblock %} {% block body %}
         </div>
       </div>
     </div>
-
+    <hr />
     <div class="customizationFeature">
       <div class="customizationFeatureTitle">
-        <b>Feature 2 (e.g. Grip Size):</b>
+        <b>Size</b>
       </div>
+      <table class="customizationSizeTable">
+        <tr>
+          <th>Size</th>
+          <th>Length (cm)</th>
+          <th>Width (cm)</th>
+          <th>Wrist Diameter (cm)</th>
+        </tr>
+        <tr>
+          <td>Child</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Teenager</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Adult</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </table>
+      <br />
       <div class="customizationFeatureText">
-        The grip size refers to the diameter of the gripping mechanism, as seen
-        in the figure below. <br />
-        Additional Information. E.g.: There is only one option available as the
-        there is a universal size for kayaking bars. <br />
-        <img
-          src="{{ url_for('static', filename = 'gripSize.png') }}"
-          alt="gripSize"
-        />
-      </div>
-      <div class="customizationFeatureRadio">
-        <div class="customizationFeatureRadioText">
-          Select grip size of prosthetic:
-        </div>
-        <div class="radioButton">
-          <input
-            type="radio"
-            id="smallGrip"
-            name="gripSize"
-            value="6cm"
-            checked
-          />
-          <label for="smallGrip">6cm</label>
-          <!--
-            <input type="radio" id="mediumGrup" name="gripSize" value="medium">
-            <label for="mediumGrup">Medium</label>
-            <input type="radio" id="largeGrip" name="gripSize" value="large">
-            <label for="largeGrip">Large</label> -->
-        </div>
-      </div>
-    </div>
-
-    <div class="customizationFeature">
-      <div class="customizationFeatureTitle">
-        <b>Feature 3 (e.g. Arm Size):</b>
-      </div>
-      <div class="customizationFeatureText">
-        The arm size refers to the diameter of the prosthetic arm attachment, as
-        seen in the figure below. <br />
+        The wrist diameter refers to the diameter of the prosthetic arm
+        attachment, as seen in the figure below. <br />
         <img
           src="{{ url_for('static', filename = 'armSize.png') }}"
           alt="armSize"
         />
       </div>
+
       <div class="customizationFeatureRadio">
         <div class="customizationFeatureRadioText">
-          Select arm size of prosthetic:
+          Select size of prosthetic:
         </div>
         <div class="radioButton">
           <input
             type="radio"
-            id="smallArm"
-            name="armSize"
-            value="4cm"
+            id="childSize"
+            name="size"
+            value="childSize"
             checked
           />
-          <label for="smallArm">4cm</label>
-          <input type="radio" id="mediumArm" name="armSize" value="6cm" />
-          <label for="mediumArm">6cm</label>
-          <input type="radio" id="largeArm" name="armSize" value="7cm" />
-          <label for="largeArm">7cm</label>
+          <label for="childSize">Child</label>
+          <input
+            type="radio"
+            id="teenagerSize"
+            name="size"
+            value="teenagerSize"
+          />
+          <label for="teenagerSize">Teenager</label>
+          <input type="radio" id="adultSize" name="size" value="adultSize" />
+          <label for="adultSize">Adult</label>
         </div>
       </div>
     </div>
@@ -135,17 +132,7 @@ endblock %} {% block body %}
     -->
   </div>
 
-  <!-- ----------------------------------------------------------------------------- -->
-  <!-- TO DO -->
   <div class="previewHeader">Preview and Download Your Design:</div>
-  <!-- <button type="button" class="collapsible">
-    Preview and Download Your Design
-    <img
-      src="{{ url_for('static', filename = 'dropdownArrow.png') }}"
-      alt="Dropdown Arrow"
-      id="dropdownArrow"
-    />
-  </button> -->
   <div class="content">
     <script type="module">
       import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";

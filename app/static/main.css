@@ -162,14 +162,6 @@ li#navBarActive a:hover {
   font-size: large;
 }
 
-/*
-.customizationFeatureText{
-  width: 65%;
-  padding: 10px;
-  margin: 0 auto;
-  overflow: auto;
-} */
-
 .customizationFeatureText {
   padding: 10px;
 }
@@ -199,6 +191,27 @@ li#navBarActive a:hover {
   -ms-transform: translateY(-50%);
   transform: translateY(50%);
 }
+
+.customizationSizeTable {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+.customizationSizeTable th {
+  text-align: center;
+  padding: 10px;
+  width: 25%;
+}
+.customizationSizeTable td {
+  text-align: center;
+  padding: 10px;
+  width: 25%;
+}
+.customizationSizeTable tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 /*------------- For Contact Us Preview ------------*/
 #contactUsEmail {
   color: #0000ee;
