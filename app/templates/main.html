@@ -251,19 +251,49 @@ endblock %} {% block body %}
   <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
   <script>
     let coll = document.getElementsByClassName("collapsible");
-    let i;
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        let content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
+    // should be two elements; both can be inactive, but only one can be active at a time
+    // for (let i = 0; i < coll.length; i++) {
+    //   coll[i].addEventListener("click", function () {
+    //     this.classList.toggle("active");
+    //     let content = this.nextElementSibling;
+    //     console.log(content);
+    //     if (content.style.display === "block") {
+    //       content.style.display = "none";
+    //     } else {
+    //       content.style.display = "block";
+    //     }
+    //   });
+    // }
+
+    coll[0].addEventListener("click", function () {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      let otherContent = coll[1].nextElementSibling;
+      if (content.style.display == "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+        if (otherContent.style.display == "block"){
+          coll[1].classList.toggle("active");
+          otherContent.style.display = "none";
         }
-      });
-    }
+      }
+    });
+    coll[1].addEventListener("click", function () {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      let otherContent = coll[0].nextElementSibling;
+      if (content.style.display == "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+        if (otherContent.style.display == "block"){
+          coll[0].classList.toggle("active");
+          otherContent.style.display = "none";
+        }
+      }
+    });
   </script>
 
   <!-- script to handle creating customizaiton table/information from the .json file -->
