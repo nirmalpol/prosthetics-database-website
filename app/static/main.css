@@ -241,8 +241,11 @@ li#navBarActive a:hover {
 /*------------- For Section 3 Preview ------------*/
 canvas {
   display: block;
-  max-width: 60em;
   margin: 0 auto;
+  max-width: 40vw;
+  max-height: 50vh;
+  outline: none;
+  border: 3px solid black;
 }
 
 #info {
