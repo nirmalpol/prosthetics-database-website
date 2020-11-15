@@ -144,6 +144,7 @@ li#navBarActive a:hover {
 
 .radioButton label:hover {
   border-color: rgb(105, 105, 105);
+  cursor: pointer;
 }
 
 .radioButton input[type="radio"]:checked + label {
@@ -214,7 +215,37 @@ td {
   font-weight: bold;
 }
 
-/*------------- For Contact Us Preview ------------*/
+#submit {
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  outline: none;
+  font-size: large;
+
+  color: rgb(44, 144, 211);
+  background-color: white;
+  border: solid 2px rgb(44, 144, 211);
+  border-radius: 15px;
+}
+
+#submit:hover {
+  color: white;
+  background-color: rgb(44, 144, 211);
+  cursor: pointer;
+}
+
+#submit:active {
+  color: white;
+  background-color: rgb(133, 196, 238);
+  border: solid 2px rgb(133, 196, 238);
+  cursor: pointer;
+}
+
+/*------------- For Contact Us page ------------*/
 #contactUsEmail {
   color: #0000ee;
   text-decoration: underline;
@@ -222,7 +253,7 @@ td {
   font-size: large;
 }
 
-/* ------ For Section 3 ------*/
+/* ------ For Section 3 header ------*/
 
 .previewHeader {
   background-color: rgb(255, 255, 255);
