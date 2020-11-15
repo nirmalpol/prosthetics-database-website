@@ -76,4 +76,8 @@ def toAboutPage():
 @app.route('/Contact')
 def toContactPage():
     return render_template('Contact.html')
+
+@app.route('/Disclaimer')
+def toDisclaimerPage():
+    return render_template('Disclaimer.html')
     
