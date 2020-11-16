@@ -3,12 +3,28 @@
         "Side of Body": ["Right", "Left"],
         "Size": ["Child", "Teenager", "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
+        "Measurement": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+        "numParts": 1,
+        "Coordinates": {
+            "Testing/Right/Child/part1.stl": [0, 0, 0],
+            "Testing/Right/Teenager/part1.stl": [0, 0, 0],
+            "Testing/Right/Adult/part1.stl": [0, 0, 0],
+            "Testing/Left/Child/part1.stl": [0, 0, 0],
+            "Testing/Left/Teenager/part1.stl": [0, 0, 0],
+            "Testing/Left/Adult/part1.stl": [0, 0, 0]
+        }
+    },
+
+    "Testing1": {
+        "Side of Body": ["Right", "Left"],
+        "Size": ["Child", "Teenager", "Adult"],
+        "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[11, 22, 33], [85, 321, 5], [77, 88, 99]],
         "numParts": 3,
         "Coordinates": {
-            "Testing/Right/Adult/part1.stl": [0, 80, 0],
-            "Testing/Right/Adult/part2.stl": [0, 80, 0],
-            "Testing/Right/Adult/part3.stl": [0, 80, 0]
+            "Testing1/Left/Child/part1.stl": [0, 80, 0],
+            "Testing1/Left/Child/part2.stl": [0, 80, 0],
+            "Testing1/Left/Child/part3.stl": [0, 80, 0]
         }
     },
 

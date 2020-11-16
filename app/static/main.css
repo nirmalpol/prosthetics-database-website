@@ -120,7 +120,13 @@ li#navBarActive a:hover {
   background-color: rgb(255, 255, 255);
 }
 
-/* ---- New Radio Buttons -----*/
+/* ---- For activity dropdown -----*/
+
+#activity {
+  padding: 1px;
+}
+
+/* ---- For Radio Buttons -----*/
 
 .radioButton {
   margin: 0px;
