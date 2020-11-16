@@ -255,7 +255,7 @@ td {
 
 /* ------ For Section 3 header ------*/
 
-.previewHeader {
+#previewHeader {
   background-color: rgb(255, 255, 255);
   color: black;
   font-weight: bold;
@@ -270,6 +270,8 @@ td {
   border-left: none;
   border-right: none;
   border-bottom: none;
+
+  display: none;
 }
 
 /*------------- For Section 3 Preview ------------*/
@@ -280,6 +282,8 @@ canvas {
   max-height: 50vh;
   outline: none;
   border: 3px solid black;
+
+  display: none;
 }
 
 #info {

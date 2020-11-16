@@ -1,6 +1,10 @@
 {% extends 'base.html' %} {% set active_page = "main" %} {% block head %} {%
 endblock %} {% block body %}
 
+<p id="containerMainText">
+&emsp;&emsp;&emsp;&emsp;<b>How to use:</b> Choose a recreational activity, select amongst the available customization options, and press Submit
+to preview and download the according 3D-printable terminal device.
+</p>
 <!-- -------------------------- Section 1 ------------------------------- -->
 <p></p>
 <button type="button" class="collapsible">
@@ -100,7 +104,7 @@ endblock %} {% block body %}
 <button id="submit">Submit</button>
 </div>
 
-<div class="previewHeader">Preview and Download Your Design:</div>
+<div id="previewHeader">Preview and Download Your Design:</div>
 <script type="module">
   import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
   import { OrbitControls } from "{{ url_for('static', filename = 'jsm/OrbitControls.js') }}";
@@ -164,6 +168,7 @@ endblock %} {% block body %}
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
     canvasContainer.appendChild(renderer.domElement);
+    renderer.domElement.id = 'canvasDisplay';
 
     //
 
@@ -174,6 +179,7 @@ endblock %} {% block body %}
     //
 
     window.addEventListener("resize", onWindowResize, false);
+
   }
 
   function onWindowResize() {
@@ -222,7 +228,8 @@ endblock %} {% block body %}
   let partFilepath1 = "../static/models/"
   let partFilepath2 = "";
   let partFilepath = "";
-  let lastSelection = "";
+  let oldSelection = "";
+  let oldNumParts = 0;
 
   document.getElementById("submit").onclick = () => {
 
@@ -232,16 +239,20 @@ endblock %} {% block body %}
       sideOfBody = document.querySelector('input[name="bodySide"]:checked').value;
       size = document.querySelector('input[name="size"]:checked').value;
       partFilepath2 = activity.concat("/", sideOfBody, "/", size, "/part");
-      lastSelection = partFilepath2;
+      oldSelection = partFilepath2;
+      oldNumParts = data[activity]["numParts"];
       canvasLoadedFlag = true;
 
-      // unhide canvas/buttons
-
+      // unhide canvas/buttons initially hidden canvas/preview header/buttons
+      let previewHeader = document.getElementById("previewHeader");
+      previewHeader.style.display = "block";
+      let canvasElement = document.getElementById('canvasDisplay');
+      canvasElement.style.display = "block";
     }
     else{
-      for (let i = 1; i < (data[activity]["numParts"]+1); i++){
+      for (let i = 1; i < (oldNumParts+1); i++){
         let nameToRemove = "";
-        nameToRemove = lastSelection.concat(i.toString(), ".stl");
+        nameToRemove = oldSelection.concat(i.toString(), ".stl");
         let objToRemove = scene.getObjectByName(nameToRemove);
         scene.remove(objToRemove);
       }
@@ -254,7 +265,8 @@ endblock %} {% block body %}
 
     for (let i = 1; i < (data[activity]["numParts"]+1); i++){
       partFilepath = partFilepath1.concat(partFilepath2, i.toString(), ".stl");
-      lastSelection = partFilepath2;
+      oldSelection = partFilepath2;
+      oldNumParts = data[activity]["numParts"];
       loader.load(
         partFilepath,
         function (geometry) {
@@ -352,21 +364,6 @@ endblock %} {% block body %}
 <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
 <script>
   let coll = document.getElementsByClassName("collapsible");
-
-  // should be two elements; both can be inactive, but only one can be active at a time
-  // for (let i = 0; i < coll.length; i++) {
-  //   coll[i].addEventListener("click", function () {
-  //     this.classList.toggle("active");
-  //     let content = this.nextElementSibling;
-  //     console.log(content);
-  //     if (content.style.display === "block") {
-  //       content.style.display = "none";
-  //     } else {
-  //       content.style.display = "block";
-  //     }
-  //   });
-  // }
-
   // Click section 1
   coll[0].addEventListener("click", function () {
     this.classList.toggle("active");
@@ -375,6 +372,7 @@ endblock %} {% block body %}
     if (content.style.display == "block") {
       content.style.display = "none";
     } else {
+      // show this section
       content.style.display = "block";
       // hide other section if this section is unhidden 
       if (otherContent.style.display == "block"){
@@ -394,8 +392,10 @@ endblock %} {% block body %}
       // update activity when section 2 pressed 
       activity = document.getElementById("activity").value;
 
-      // need to update customization table
+      // update customization table (based on activity in Section 1)
+      updateCustomizationTable();
 
+      // show this section
       content.style.display = "block";
       // hide other section if this section is unhidden 
       if (otherContent.style.display == "block"){
@@ -404,6 +404,17 @@ endblock %} {% block body %}
       }
     }
   });
+
+  function updateCustomizationTable(){
+    // Update customization table measurements upon section 2 click
+    let tbl = document.getElementById("customizationSizeTable");
+
+    for (let i = 1; i < tbl.rows.length; i++) {
+      for (let j = 1; j < tbl.rows[i].cells.length; j++) {
+        tbl.rows[i].cells[j].innerHTML = data[activity]["Measurement"][i-1][j-1];
+      }  
+    }
+  }
 </script>
 
 {% endblock %}
