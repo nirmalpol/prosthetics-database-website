@@ -103,7 +103,10 @@ to preview and download the according 3D-printable terminal device.
 <button id="submit">Submit</button>
 </div>
 
-<div id="previewHeader">Preview and Download Your Design:</div>
+<div id="previewHeader">Preview and Download Your Design:
+  <br>
+  Your Files: <a href="/return-files/"><button class='btn btn-default'>Download!</button></a>
+</div>
 <script type="module">
   import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
   import { OrbitControls } from "{{ url_for('static', filename = 'jsm/OrbitControls.js') }}";
@@ -261,9 +264,11 @@ to preview and download the according 3D-printable terminal device.
     sideOfBody = document.querySelector('input[name="bodySide"]:checked').value;
     size = document.querySelector('input[name="size"]:checked').value;
     partFilepath2 = activity.concat("/", sideOfBody, "/", size, "/part");
-
+    
+    let allFiles = [];
     for (let i = 1; i < (data[activity]["numParts"]+1); i++){
       partFilepath = partFilepath1.concat(partFilepath2, i.toString(), ".stl");
+      allFiles.push(partFilepath);
       oldSelection = partFilepath2;
       oldNumParts = data[activity]["numParts"];
       loader.load(
@@ -286,6 +291,20 @@ to preview and download the according 3D-printable terminal device.
         }
       );
     }
+    console.log(allFiles);
+    $.ajax({
+    type: "POST",
+    url: "{{ url_for("handle_data") }}",
+    contentType: "application/json",
+    data: JSON.stringify(allFiles),
+    dataType: "json",
+    success: function(response) {
+        console.log(response);
+    },
+    error: function(err) {
+        console.log(err);
+    }
+});
   }
 </script>
 </div>
