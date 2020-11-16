@@ -12,16 +12,11 @@ endblock %} {% block body %}
   />
 </button>
 <div class="content">
-  <form>
+
     <label for="activity">Choose a Recreational Activity:</label>
     <select id="activity" name="activity">
-      <option value="fishing">Fishing</option>
-      <option value="tennis">Tennis</option>
-      <option value="biking">Biking</option>
-      <option value="Testing">Testing</option>
     </select>
-    <input type="submit" />
-  </form>
+
   <br />
   <br />
 </div>
@@ -45,10 +40,10 @@ endblock %} {% block body %}
         Select left- or right-hand prosthetic:
       </div>
       <div class="radioButton">
-        <input type="radio" id="left" name="hand" value="left" checked />
-        <label for="left">Left Hand</label>
-        <input type="radio" id="right" name="hand" value="right" />
-        <label for="right">Right Hand</label>
+        <input type="radio" id="Left" name="bodySide" value="Left" checked />
+        <label for="Left">Left Hand</label>
+        <input type="radio" id="Right" name="bodySide" value="Right" />
+        <label for="Right">Right Hand</label>
       </div>
     </div>
   </div>
@@ -74,21 +69,21 @@ endblock %} {% block body %}
       <div class="radioButton">
         <input
           type="radio"
-          id="childSize"
+          id="Child"
           name="size"
-          value="childSize"
+          value="Child"
           checked
         />
-        <label for="childSize">Child</label>
+        <label for="Child">Child</label>
         <input
           type="radio"
-          id="teenagerSize"
+          id="Teenager"
           name="size"
-          value="teenagerSize"
+          value="Teenager"
         />
-        <label for="teenagerSize">Teenager</label>
-        <input type="radio" id="adultSize" name="size" value="adultSize" />
-        <label for="adultSize">Adult</label>
+        <label for="Teenager">Teenager</label>
+        <input type="radio" id="Adult" name="size" value="Adult" />
+        <label for="Adult">Adult</label>
       </div>
     </div>
   </div>
@@ -212,6 +207,7 @@ endblock %} {% block body %}
   }
 
   // Things to do when submit button is hit in customization options. Currently set up to grab parts of particular model
+  // need to show/update canvas element
   const loader = new STLLoader();
     const material = new THREE.MeshPhongMaterial({
       color: 0xaaaaaa,
@@ -219,25 +215,61 @@ endblock %} {% block body %}
       shininess: 200,
     });
 
+  let sideOfBody = "";
+  let size = "";
+  let canvasLoadedFlag = false;
+
   let partFilepath1 = "../static/models/"
-  let partFilepath2 = "Testing/Right/Adult/part";
+  let partFilepath2 = "";
   let partFilepath = "";
+  let lastSelection = "";
 
   document.getElementById("submit").onclick = () => {
+
+    // need to show canvas/button if first time; update parts/files/filenames if not first time
+    if (canvasLoadedFlag == false){
+      // upon submit, get user inputs (activity, side of body, size) and get files to preview and download.
+      sideOfBody = document.querySelector('input[name="bodySide"]:checked').value;
+      size = document.querySelector('input[name="size"]:checked').value;
+      partFilepath2 = activity.concat("/", sideOfBody, "/", size, "/part");
+      lastSelection = partFilepath2;
+      canvasLoadedFlag = true;
+
+      // unhide canvas/buttons
+
+    }
+    else{
+      for (let i = 1; i < (data[activity]["numParts"]+1); i++){
+        let nameToRemove = "";
+        nameToRemove = lastSelection.concat(i.toString(), ".stl");
+        let objToRemove = scene.getObjectByName(nameToRemove);
+        scene.remove(objToRemove);
+      }
+    }
+
+    // upon submit, get user inputs (activity, side of body, size) and get files to preview and download.
+    sideOfBody = document.querySelector('input[name="bodySide"]:checked').value;
+    size = document.querySelector('input[name="size"]:checked').value;
+    partFilepath2 = activity.concat("/", sideOfBody, "/", size, "/part");
+
     for (let i = 1; i < (data[activity]["numParts"]+1); i++){
       partFilepath = partFilepath1.concat(partFilepath2, i.toString(), ".stl");
+      lastSelection = partFilepath2;
       loader.load(
         partFilepath,
         function (geometry) {
           const mesh = new THREE.Mesh(geometry, material);
 
-          let coords = data[activity]["Coordinates"][partFilepath2.concat(i.toString(), ".stl")];
+          let meshName = partFilepath2.concat(i.toString(), ".stl")
+          let coords = data[activity]["Coordinates"][meshName];
           mesh.position.set(coords[0], coords[1], coords[2]);
           mesh.rotation.set(-Math.PI / 2, 0, 0);
           mesh.scale.set(1, 1, 1);
 
           mesh.castShadow = true;
           mesh.receiveShadow = true;
+
+          mesh.name = meshName;
 
           scene.add(mesh);
         }
@@ -247,69 +279,36 @@ endblock %} {% block body %}
 </script>
 </div>
 
-<!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
-<script>
-  let coll = document.getElementsByClassName("collapsible");
 
-  // should be two elements; both can be inactive, but only one can be active at a time
-  // for (let i = 0; i < coll.length; i++) {
-  //   coll[i].addEventListener("click", function () {
-  //     this.classList.toggle("active");
-  //     let content = this.nextElementSibling;
-  //     console.log(content);
-  //     if (content.style.display === "block") {
-  //       content.style.display = "none";
-  //     } else {
-  //       content.style.display = "block";
-  //     }
-  //   });
-  // }
-
-  coll[0].addEventListener("click", function () {
-    this.classList.toggle("active");
-    let content = this.nextElementSibling;
-    let otherContent = coll[1].nextElementSibling;
-    if (content.style.display == "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-      if (otherContent.style.display == "block"){
-        coll[1].classList.toggle("active");
-        otherContent.style.display = "none";
-      }
-    }
-  });
-  coll[1].addEventListener("click", function () {
-    this.classList.toggle("active");
-    let content = this.nextElementSibling;
-    let otherContent = coll[0].nextElementSibling;
-    if (content.style.display == "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-      if (otherContent.style.display == "block"){
-        coll[0].classList.toggle("active");
-        otherContent.style.display = "none";
-      }
-    }
-  });
-</script>
-
-<!-- script to handle creating customizaiton table/information from the .json file -->
+<!-- initialization script to create dropdown and customization info table from the .json file -->
 <script>
   let data = null
+  let activities = [];
+  let activity = "";
   fetch("{{ url_for('static', filename = 'main.json') }}")
         .then((file) => file.json())
         .then((dataJSON) => {
           data = dataJSON;
-          createCustomizationTable();   // in fetch() to ensure synchronous
+          // in fetch() to ensure synchronous
+          createActivityDropdown();
+          createCustomizationTable();
           })
         .catch((err) => {
           console.log(err);
         });
   
-  // assume chosen activity is "testing"
-  let activity = "Testing";
+  function createActivityDropdown (){
+    activities = Object.keys(data);
+    let sel = document.getElementById("activity");
+
+    for(let key=0;key<activities.length;key++){
+      let opt = document.createElement("option");
+      opt.value = activities[key];
+      opt.innerHTML = activities[key];
+      sel.appendChild(opt)
+    }
+    activity = sel.value;
+  }
 
   function createCustomizationTable(){
     let tbl = document.getElementById("customizationSizeTable");
@@ -350,5 +349,61 @@ endblock %} {% block body %}
 
 </script>
 
+<!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
+<script>
+  let coll = document.getElementsByClassName("collapsible");
+
+  // should be two elements; both can be inactive, but only one can be active at a time
+  // for (let i = 0; i < coll.length; i++) {
+  //   coll[i].addEventListener("click", function () {
+  //     this.classList.toggle("active");
+  //     let content = this.nextElementSibling;
+  //     console.log(content);
+  //     if (content.style.display === "block") {
+  //       content.style.display = "none";
+  //     } else {
+  //       content.style.display = "block";
+  //     }
+  //   });
+  // }
+
+  // Click section 1
+  coll[0].addEventListener("click", function () {
+    this.classList.toggle("active");
+    let content = this.nextElementSibling;
+    let otherContent = coll[1].nextElementSibling;
+    if (content.style.display == "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+      // hide other section if this section is unhidden 
+      if (otherContent.style.display == "block"){
+        coll[1].classList.toggle("active");
+        otherContent.style.display = "none";
+      }
+    }
+  });
+  // Click section 2
+  coll[1].addEventListener("click", function () {
+    this.classList.toggle("active");
+    let content = this.nextElementSibling;
+    let otherContent = coll[0].nextElementSibling;
+    if (content.style.display == "block") {
+      content.style.display = "none";
+    } else {
+      // update activity when section 2 pressed 
+      activity = document.getElementById("activity").value;
+
+      // need to update customization table
+
+      content.style.display = "block";
+      // hide other section if this section is unhidden 
+      if (otherContent.style.display == "block"){
+        coll[0].classList.toggle("active");
+        otherContent.style.display = "none";
+      }
+    }
+  });
+</script>
 
 {% endblock %}

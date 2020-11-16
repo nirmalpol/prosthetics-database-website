@@ -1,17 +1,4 @@
 {
-    "Kayaking": {
-        "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Teenager", "Adult"],
-        "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
-        "Measurement": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-        "numParts": 3,
-        "Coordinates": {
-            "Kayaking/Right/Child/part1.stl": [0, 0, 0],
-            "Kayaking/Right/Child/part2.stl": [1, 2, 3],
-            "Kayaking/Right/Child/part3.stl": [4, 5, 6]
-        }
-    },
-
     "Testing": {
         "Side of Body": ["Right", "Left"],
         "Size": ["Child", "Teenager", "Adult"],
@@ -22,6 +9,20 @@
             "Testing/Right/Adult/part1.stl": [0, 80, 0],
             "Testing/Right/Adult/part2.stl": [0, 80, 0],
             "Testing/Right/Adult/part3.stl": [0, 80, 0]
+        }
+    },
+
+    "Testing2": {
+        "Side of Body": ["Right", "Left"],
+        "Size": ["Child", "Teenager", "Adult"],
+        "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
+        "Measurement": [[3, 2, 1], [6, 5, 4], [9, 8, 7]],
+        "numParts": 4,
+        "Coordinates": {
+            "Testing2/Left/Child/part1.stl": [0, 165, 25],
+            "Testing2/Left/Child/part2.stl": [0, 50, 0],
+            "Testing2/Left/Child/part3.stl": [55, 35, -10],
+            "Testing2/Left/Child/part4.stl": [0, 100, -20]
         }
     }
 }
