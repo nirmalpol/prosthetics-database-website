@@ -7,6 +7,14 @@ html {
 }
 
 /* ------ For Navigation Bar / Header ------*/
+.option-image {
+    display: none;
+}
+
+.option-image:hover {
+    display: block;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
