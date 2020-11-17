@@ -14,7 +14,7 @@
             "Testing0/Left/Adult/part1.stl": [0, 0, 0]
         },
         "ImageSrc":  "/static/images/Recreational0.jpg",
-	"ImageAlt":  "Biking"
+	    "ImageAlt":  "Biking"
     },
 
     "Testing1": {
@@ -29,7 +29,7 @@
             "Testing1/Left/Child/part3.stl": [0, 80, 0]
         },
         "ImageSrc":  "/static/images/Recreational1.jpg",
-	"ImageAlt":  "Swimming"
+	    "ImageAlt":  "Swimming"
     },
 
     "Testing2": {
@@ -45,6 +45,6 @@
             "Testing2/Left/Child/part4.stl": [0, 100, -20]
         },
         "ImageSrc":  "/static/images/Recreational2.jpg",
-	"ImageAlt":  "Rowing"
+	    "ImageAlt":  "Rowing"
     }
 }
