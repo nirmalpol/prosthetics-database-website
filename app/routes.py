@@ -30,7 +30,6 @@ def handle_data():
     allFiles = filename.split('/')
     allFiles.insert(0, "app")
 
-    print(allFiles)
     return jsonify(status="success", data=data)
 
 @app.route('/return_files/', methods=['POST'])
@@ -42,7 +41,6 @@ def return_files():
     
     for i in range(len(allFiles)):
         file_path = os.path.join(file_path, allFiles[i])
-        print(file_path)
     
     try:
         # For MAC OS and Linux

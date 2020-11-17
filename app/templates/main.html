@@ -241,7 +241,9 @@ to preview and download the according 3D-printable terminal device.
   let oldNumParts = 0;
 
   document.getElementById("submit").onclick = () => {
-
+    coll[1].nextElementSibling.style.display = "none";
+    let previewHeader = document.getElementById("previewHeader");
+    previewHeader.style.borderTop = "none";
     // need to show canvas/button if first time; update parts/files/filenames if not first time
     if (canvasLoadedFlag == false){
       // upon submit, get user inputs (activity, side of body, size) and get files to preview and download.
@@ -253,7 +255,6 @@ to preview and download the according 3D-printable terminal device.
       canvasLoadedFlag = true;
 
       // unhide canvas/buttons initially hidden canvas/preview header/buttons
-      let previewHeader = document.getElementById("previewHeader");
       previewHeader.style.display = "block";
       let canvasElement = document.getElementById('canvasDisplay');
       canvasElement.style.display = "block";
@@ -298,10 +299,9 @@ to preview and download the according 3D-printable terminal device.
         }
       );
     }
-    console.log(allFiles);
     $.ajax({
     type: "POST",
-    url: "{{ url_for("handle_data") }}",
+    url: "{{ url_for('handle_data') }}",
     contentType: "application/json",
     data: JSON.stringify(allFiles),
     dataType: "json",
@@ -311,7 +311,7 @@ to preview and download the according 3D-printable terminal device.
     error: function(err) {
         console.log(err);
     }
-});
+    });
   }
 </script>
 </div>
@@ -400,6 +400,7 @@ to preview and download the according 3D-printable terminal device.
 <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
 <script>
   let coll = document.getElementsByClassName("collapsible");
+  let previewHeader = document.getElementById("previewHeader");
   // Click section 1
   coll[0].addEventListener("click", function () {
     this.classList.toggle("active");
@@ -414,6 +415,7 @@ to preview and download the according 3D-printable terminal device.
       if (otherContent.style.display == "block"){
         coll[1].classList.toggle("active");
         otherContent.style.display = "none";
+        previewHeader.style.borderTop = "none";
       }
     }
   });
@@ -424,6 +426,7 @@ to preview and download the according 3D-printable terminal device.
     let otherContent = coll[0].nextElementSibling;
     if (content.style.display == "block") {
       content.style.display = "none";
+      previewHeader.style.borderTop = "none";
     } else {
       // update activity when section 2 pressed 
       activity = document.getElementById("activity").value;
@@ -433,6 +436,7 @@ to preview and download the according 3D-printable terminal device.
 
       // show this section
       content.style.display = "block";
+      previewHeader.style.borderTop = "1px solid black";
       // hide other section if this section is unhidden 
       if (otherContent.style.display == "block"){
         coll[0].classList.toggle("active");
