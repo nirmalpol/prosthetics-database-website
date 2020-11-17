@@ -21,6 +21,8 @@ to preview and download the according 3D-printable terminal device.
     <select id="activity" name="activity">
     </select>
 
+    <div id="dropdownList"></div>
+
   <br />
   <br />
 </div>
@@ -333,7 +335,7 @@ to preview and download the according 3D-printable terminal device.
   function createActivityDropdown (){
     activities = Object.keys(data);
     let sel = document.getElementById("activity");
-    let dropdownBlock = document.getElementById("dropdownBlock");
+    let dropdownBlock = document.getElementById("dropdownList");
 
     for(let key=0;key<activities.length;key++){
       let opt = document.createElement("option");
@@ -343,9 +345,13 @@ to preview and download the according 3D-printable terminal device.
       opt.className = "option".concat(idNum);
       opt.value = activities[key];
       opt.innerHTML = "Activity "+activities[key];
-      opt.title = "/static/images/Recreational"+key+".jpg";
+      
+      image.src = data["Testing1"]["ImageSrc"];
+      image.alt = data["Testing1"]["ImageAlt"];
+      image.classList.add("option-image");
       
       sel.appendChild(opt);
+      dropdownBlock.appendChild(image)
     }
     activity = sel.value;
     //document.getElementById('stylesheet').href='/static/main2.css';
@@ -388,16 +394,6 @@ to preview and download the according 3D-printable terminal device.
     tbl.appendChild(tbody);
   }
 
-</script>
-
-<script language="javascript">
-  $(document).ready(function(e) {
-  try {
-  $("body select").msDropDown();
-  } catch(e) {
-  alert(e.message);
-  }
-  });
 </script>
 
 <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
