@@ -1,5 +1,5 @@
 {
-    "Testing": {
+    "Testing0": {
         "Side of Body": ["Right", "Left"],
         "Size": ["Child", "Teenager", "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
@@ -12,7 +12,9 @@
             "Testing/Left/Child/part1.stl": [0, 0, 0],
             "Testing/Left/Teenager/part1.stl": [0, 0, 0],
             "Testing/Left/Adult/part1.stl": [0, 0, 0]
-        }
+        },
+        "ImageSrc":  "/static/images/Recreational0.jpg",
+	"ImageAlt":  "Biking"
     },
 
     "Testing1": {
@@ -25,7 +27,9 @@
             "Testing1/Left/Child/part1.stl": [0, 80, 0],
             "Testing1/Left/Child/part2.stl": [0, 80, 0],
             "Testing1/Left/Child/part3.stl": [0, 80, 0]
-        }
+        },
+        "ImageSrc":  "/static/images/Recreational1.jpg",
+	"ImageAlt":  "Swimming"
     },
 
     "Testing2": {
@@ -39,6 +43,8 @@
             "Testing2/Left/Child/part2.stl": [0, 50, 0],
             "Testing2/Left/Child/part3.stl": [55, 35, -10],
             "Testing2/Left/Child/part4.stl": [0, 100, -20]
-        }
+        },
+        "ImageSrc":  "/static/images/Recreational2.jpg",
+	"ImageAlt":  "Rowing"
     }
 }
