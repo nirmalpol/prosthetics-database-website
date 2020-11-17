@@ -298,10 +298,9 @@ to preview and download the according 3D-printable terminal device.
         }
       );
     }
-    console.log(allFiles);
     $.ajax({
     type: "POST",
-    url: "{{ url_for("handle_data") }}",
+    url: "{{ url_for('handle_data') }}",
     contentType: "application/json",
     data: JSON.stringify(allFiles),
     dataType: "json",
@@ -311,7 +310,7 @@ to preview and download the according 3D-printable terminal device.
     error: function(err) {
         console.log(err);
     }
-});
+    });
   }
 </script>
 </div>
