@@ -22,28 +22,38 @@ def index():
 def handle_data():
     global allFiles
     data = request.get_json()
-    for i in range(len(data)):
-        filename = data[i]
-        filename = filename.replace('../', '')
-        filename = filename.replace('/', '\\')
-        
-        allFiles = filename[0:-9]
+    
+    filename = data[0]
+    filename = filename.replace('../', '')
+    filename = filename[0:-10]
+
+    allFiles = filename.split('/')
+    allFiles.insert(0, "app")
+
     print(allFiles)
     return jsonify(status="success", data=data)
-
 
 @app.route('/return_files/', methods=['POST'])
 def return_files():
 
     global allFiles
-    file_path = os.getcwd() + '\\app\\' + allFiles
-    print(os.getcwd())
-    print(file_path)
-    return send_file(shutil.make_archive('myFiles', 'zip', file_path),
-                    attachment_filename='myFiles.zip',
+    
+    file_path = os.getcwd()
+    
+    for i in range(len(allFiles)):
+        file_path = os.path.join(file_path, allFiles[i])
+        print(file_path)
+    
+    try:
+        # For MAC OS and Linux
+        return send_file(shutil.make_archive('DesignFiles', 'zip', file_path+"/"),
+                    attachment_filename='DesignFiles.zip',
                     as_attachment=True)
-
-
+    except:
+        # For Windows
+        return send_file(shutil.make_archive('DesignFiles', 'zip', file_path+"\\"),
+                    attachment_filename='DesignFiles.zip',
+                    as_attachment=True)
 
 @app.route('/About')
 def toAboutPage():
