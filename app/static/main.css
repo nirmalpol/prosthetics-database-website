@@ -312,6 +312,13 @@ td {
   background-color: rgb(103, 179, 255);
 }
 
+#previewText {
+  font-size: large;
+  padding: 0px 18px;
+  margin: 0;
+  margin-bottom: 18px;
+}
+
 /*------------- For Section 3 Preview ------------*/
 canvas {
   display: block;

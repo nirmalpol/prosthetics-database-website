@@ -108,11 +108,12 @@ to preview and download the according 3D-printable terminal device.
 </div>
 
 <div id="previewHeader">
-<div id="PreviewHeaderText">Preview and Download Your Design:</div>
+  <div id="PreviewHeaderText">Preview and Download Your Design:</div>
   <form action="/return_files/" method="post">
     <button id="downloadButton" type="submit"> Download</button>
   </form>
 </div>
+<!-- <p id="previewText">&emsp;&emsp;&emsp;&emsp;Please wait for the files to load below.</p> -->
 
 <script type="module">
   import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
@@ -221,8 +222,7 @@ to preview and download the according 3D-printable terminal device.
     }
   }
 
-  // Things to do when submit button is hit in customization options. Currently set up to grab parts of particular model
-  // need to show/update canvas element
+  // Things to do when submit button is hit in customization options.
   const loader = new STLLoader();
     const material = new THREE.MeshPhongMaterial({
       color: 0xaaaaaa,
