@@ -107,13 +107,13 @@ to preview and download the according 3D-printable terminal device.
 <button id="submit">Submit</button>
 </div>
 
-<div id="previewHeader">Preview and Download Your Design:
-  <br>
-  Your Files: 
+<div id="previewHeader">
+<div id="PreviewHeaderText">Preview and Download Your Design:</div>
   <form action="/return_files/" method="post">
-    <button name="forwardBtn" type="submit">Download</button>
+    <button id="downloadButton" type="submit"> Download</button>
   </form>
 </div>
+
 <script type="module">
   import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
   import { OrbitControls } from "{{ url_for('static', filename = 'jsm/OrbitControls.js') }}";
@@ -255,7 +255,7 @@ to preview and download the according 3D-printable terminal device.
       canvasLoadedFlag = true;
 
       // unhide canvas/buttons initially hidden canvas/preview header/buttons
-      previewHeader.style.display = "block";
+      previewHeader.style.display = "flex";
       let canvasElement = document.getElementById('canvasDisplay');
       canvasElement.style.display = "block";
     }
