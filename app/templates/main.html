@@ -7,6 +7,7 @@ to preview and download the according 3D-printable terminal device.
 </p>
 <!-- -------------------------- Section 1 ------------------------------- -->
 <p></p>
+<!-- ------ Section 1 Header ------ -->
 <button type="button" class="collapsible">
   Choose a Recreational Activity
   <img
@@ -14,21 +15,19 @@ to preview and download the according 3D-printable terminal device.
     alt="Dropdown Arrow"
     id="dropdownArrow"
   />
-
 </button>
-<div class="content">
-    <label for="activity">Choose a Recreational Activity:</label>
-    <br />
-    <select id="activity" name="activity">
-    </select>
-
-    <div id="dropdownList"></div>
-
-  <br />
-  <br />
+<!-- ------ Section 1 Container ------ -->
+<div class="activityContainer">
+  <div id="selectContainer">
+    <select id="activitySelect" name="activitySelect"></select>
+  </div>
+  <div id="optionImageContainer">
+    <img id="optionImage">
+  </div>
 </div>
 
 <!-- ---------------------------- Section 2 --------------------------------- -->
+<!-- ------ Section 2 Header ------ -->
 <button type="button" class="collapsible">
   Customization Options
   <img
@@ -37,11 +36,14 @@ to preview and download the according 3D-printable terminal device.
     id="dropdownArrow"
   />
 </button>
+<!-- ------ Section 2 Container ------ -->
 <div class="content">
+  <!-- ------ Side of Body option ------ -->
   <div class="customizationFeature">
     <div class="customizationFeatureTitle">
       <b>Side of Body</b>
     </div>
+    <!-- ------ Side of body radio buttons ------ -->
     <div class="customizationFeatureRadio">
       <div class="customizationFeatureRadioText">
         Select left- or right-hand prosthetic:
@@ -55,6 +57,7 @@ to preview and download the according 3D-printable terminal device.
     </div>
   </div>
   <hr />
+  <!-- ------ Size option ------ -->
   <div class="customizationFeature">
     <div class="customizationFeatureTitle">
       <b>Size</b>
@@ -68,7 +71,7 @@ to preview and download the according 3D-printable terminal device.
         alt="armSize"
       />
     </div>
-
+    <!-- ------ Size radio buttons ------ -->
     <div class="customizationFeatureRadio">
       <div class="customizationFeatureRadioText">
         Select size of prosthetic:
@@ -94,27 +97,24 @@ to preview and download the according 3D-printable terminal device.
       </div>
     </div>
   </div>
-
-  <!--   
-          <b>Select from recommended materials:</b><br>
-          <input type="radio" id="ABS" name="material" value="ABS">
-          <label for="ABS">ABS</label><br>
-          <input type="radio" id="PLA" name="material" value="PLA">
-          <label for="PLA">PLA</label><br>
-          
-          <b>Additional information:</b> <br>
-  -->
-<button id="submit">Submit</button>
+  <hr />
+  <!-- ------ Submit button ------ -->
+  <button id="submit">Submit</button>
 </div>
 
+<!-- ---------------------------- Preview/Download Section --------------------------------- -->
+<!-- ------ Preview header ------ -->
 <div id="previewHeader">
   <div id="PreviewHeaderText">Preview and Download Your Design:</div>
+  <!-- ------ Download button ------ -->
   <form action="/return_files/" method="post">
     <button id="downloadButton" type="submit"> Download</button>
   </form>
 </div>
 <!-- <p id="previewText">&emsp;&emsp;&emsp;&emsp;Please wait for the files to load below.</p> -->
 
+<!-- ------------------------------------ JS scripts ----------------------------------------- -->
+<!-- ------ to set up canvas; get files to preview/download upon submit button click ------ -->
 <script type="module">
   import * as THREE from "{{ url_for('static', filename = 'build/three.module.js') }}";
   import { OrbitControls } from "{{ url_for('static', filename = 'jsm/OrbitControls.js') }}";
@@ -239,7 +239,7 @@ to preview and download the according 3D-printable terminal device.
   let partFilepath = "";
   let oldSelection = "";
   let oldNumParts = 0;
-
+    
   document.getElementById("submit").onclick = () => {
     coll[1].nextElementSibling.style.display = "none";
     let previewHeader = document.getElementById("previewHeader");
@@ -268,7 +268,7 @@ to preview and download the according 3D-printable terminal device.
       }
     }
 
-    // upon submit, get user inputs (activity, side of body, size) and get files to preview and download.
+    // get files to preview and download.
     sideOfBody = document.querySelector('input[name="bodySide"]:checked').value;
     size = document.querySelector('input[name="size"]:checked').value;
     partFilepath2 = activity.concat("/", sideOfBody, "/", size, "/part");
@@ -316,7 +316,7 @@ to preview and download the according 3D-printable terminal device.
 </script>
 </div>
 
-<!-- initialization script to create dropdown and customization info table from the .json file -->
+<!-- initialization to create dropdown and customization info table from the .json file -->
 <script>
   let data = null
   let activities = [];
@@ -335,27 +335,21 @@ to preview and download the according 3D-printable terminal device.
   
   function createActivityDropdown (){
     activities = Object.keys(data);
-    let sel = document.getElementById("activity");
+    let sel = document.getElementById("activitySelect");
     let dropdownBlock = document.getElementById("dropdownList");
 
     for(let key=0;key<activities.length;key++){
       let opt = document.createElement("option");
-      let image = document.createElement("img");
-      let idNum = key.toString();
 
-      opt.className = "option".concat(idNum);
       opt.value = activities[key];
-      opt.innerHTML = "Activity "+activities[key];
-      
-      image.src = data["Testing1"]["ImageSrc"];
-      image.alt = data["Testing1"]["ImageAlt"];
-      image.classList.add("option-image");
-      
+      opt.innerHTML = activities[key];   
+     
       sel.appendChild(opt);
-      dropdownBlock.appendChild(image)
     }
     activity = sel.value;
-    //document.getElementById('stylesheet').href='/static/main2.css';
+    let image = document.getElementById("optionImage");
+    image.src = data[activity]["ImageSrc"];
+    image.alt = data[activity]["ImageAlt"];
   }
 
   function createCustomizationTable(){
@@ -398,6 +392,7 @@ to preview and download the according 3D-printable terminal device.
 </script>
 
 <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
+<!-- to show/hide body upon header clicks; update customization info table -->
 <script>
   let coll = document.getElementsByClassName("collapsible");
   let previewHeader = document.getElementById("previewHeader");
@@ -406,11 +401,11 @@ to preview and download the according 3D-printable terminal device.
     this.classList.toggle("active");
     let content = this.nextElementSibling;
     let otherContent = coll[1].nextElementSibling;
-    if (content.style.display == "block") {
+    if (content.style.display == "flex") {
       content.style.display = "none";
     } else {
       // show this section
-      content.style.display = "block";
+      content.style.display = "flex";
       // hide other section if this section is unhidden 
       if (otherContent.style.display == "block"){
         coll[1].classList.toggle("active");
@@ -428,9 +423,6 @@ to preview and download the according 3D-printable terminal device.
       content.style.display = "none";
       previewHeader.style.borderTop = "none";
     } else {
-      // update activity when section 2 pressed 
-      activity = document.getElementById("activity").value;
-
       // update customization table (based on activity in Section 1)
       updateCustomizationTable();
 
@@ -438,7 +430,7 @@ to preview and download the according 3D-printable terminal device.
       content.style.display = "block";
       previewHeader.style.borderTop = "1px solid black";
       // hide other section if this section is unhidden 
-      if (otherContent.style.display == "block"){
+      if (otherContent.style.display == "flex"){
         coll[0].classList.toggle("active");
         otherContent.style.display = "none";
       }
@@ -455,6 +447,18 @@ to preview and download the according 3D-printable terminal device.
       }  
     }
   }
+</script>
+
+<!-- to update variable and image based on dropdown selection -->
+<script>
+    let sel = document.getElementById("activitySelect");
+
+    sel.addEventListener("change", function(){
+      activity = sel.value;
+      let image = document.getElementById("optionImage");
+      image.src = data[activity]["ImageSrc"];
+      image.alt = data[activity]["ImageAlt"];     
+    })
 </script>
 
 {% endblock %}

@@ -13,7 +13,7 @@
             "Testing0/Left/Teenager/part1.stl": [0, 0, 0],
             "Testing0/Left/Adult/part1.stl": [0, 0, 0]
         },
-        "ImageSrc":  "/static/images/Recreational0.jpg",
+        "ImageSrc":  "../static/images/Recreational0.jpg",
 	    "ImageAlt":  "Biking"
     },
 
@@ -28,7 +28,7 @@
             "Testing1/Left/Child/part2.stl": [0, 80, 0],
             "Testing1/Left/Child/part3.stl": [0, 80, 0]
         },
-        "ImageSrc":  "/static/images/Recreational1.jpg",
+        "ImageSrc":  "../static/images/Recreational1.jpg",
 	    "ImageAlt":  "Swimming"
     },
 
@@ -44,7 +44,7 @@
             "Testing2/Left/Child/part3.stl": [55, 35, -10],
             "Testing2/Left/Child/part4.stl": [0, 100, -20]
         },
-        "ImageSrc":  "/static/images/Recreational2.jpg",
+        "ImageSrc":  "../static/images/Recreational2.jpg",
 	    "ImageAlt":  "Rowing"
     }
 }

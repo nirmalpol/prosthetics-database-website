@@ -7,14 +7,6 @@ html {
 }
 
 /* ------ For Navigation Bar / Header ------*/
-.option-image {
-  display: none;
-}
-
-.option-image:hover {
-  display: block;
-}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -128,10 +120,50 @@ li#navBarActive a:hover {
   background-color: rgb(255, 255, 255);
 }
 
-/* ---- For activity dropdown -----*/
+/* ---- For Section 1 / activity dropdown -----*/
+.activityContainer {
+  padding: 5px 25px;
+  display: none;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
 
-#activity {
-  padding: 1px;
+  height: 360px;
+}
+
+#selectContainer {
+  display: flex;
+  height: 100%;
+  width: 40%;
+  justify-content: center;
+  padding-top: 15%;
+}
+
+#activitySelect {
+  padding: 0px 10px;
+  font-size: large;
+  height: 45px;
+  width: 200px;
+
+  outline: none;
+  cursor: pointer;
+
+  color: #394a6d;
+  border: 2px solid #394a6d;
+  border-radius: 10px;
+}
+
+#optionImageContainer {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#optionImage {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /* ---- For Radio Buttons -----*/
@@ -235,7 +267,7 @@ td {
   text-align: center;
   display: block;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 25px;
   outline: none;
   font-size: large;
