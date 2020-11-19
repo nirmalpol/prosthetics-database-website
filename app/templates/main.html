@@ -447,7 +447,12 @@
         // hide other section if this section is unhidden 
         if (otherContent.style.display == "flex"){
           coll[0].classList.toggle("active");
-          otherContent.style.display = "none";
+          var delayInMilliseconds = 500; 
+          
+          $(coll[0].nextElementSibling).slideUp('slow');
+          setTimeout(function() {
+            otherContent.style.display = "none";
+          }, delayInMilliseconds);
         }
       }
     });
