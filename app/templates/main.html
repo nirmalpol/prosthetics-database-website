@@ -241,7 +241,12 @@
     let oldNumParts = 0;
       
     document.getElementById("submit").onclick = () => {
-      coll[1].nextElementSibling.style.display = "none";
+      var delayInMilliseconds = 500; 
+      $(coll[1].nextElementSibling).slideUp('slow');
+          setTimeout(function() {
+            coll[1].nextElementSibling.style.display = "none";
+          }, delayInMilliseconds);
+
       let previewHeader = document.getElementById("previewHeader");
       previewHeader.style.borderTop = "none";
       // need to show canvas/button if first time; update parts/files/filenames if not first time
@@ -394,16 +399,17 @@
   <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
   <!-- to show/hide body upon header clicks; update customization info table -->
   <script>
-    let coll = document.getElementsByClassName("collapsible");
+    var coll = document.getElementsByClassName("collapsible");
     let previewHeader = document.getElementById("previewHeader");
     // Click section 1
     coll[0].addEventListener("click", function () {
       this.classList.toggle("active");
       let content = this.nextElementSibling;
       let otherContent = coll[1].nextElementSibling;
+      var delayInMilliseconds = 500; 
+
       if (content.style.display == "flex") {
-        var delayInMilliseconds = 500; 
-        $(this.nextElementSibling).slideUp('slow');
+        $(content).slideUp('slow');
         setTimeout(function() {
           content.style.display = "none";
         }, delayInMilliseconds);
@@ -411,13 +417,16 @@
 
       } else {
         // show this section
-        var delayInMilliseconds = 500; 
-        $(this.nextElementSibling).slideDown('slow');
+        $(content).slideDown('slow');
         content.style.display = "flex";
         // hide other section if this section is unhidden 
         if (otherContent.style.display == "block"){
           coll[1].classList.toggle("active");
-          otherContent.style.display = "none";
+
+          $(otherContent).slideUp('slow');
+          setTimeout(function() {
+            otherContent.style.display = "none";
+          }, delayInMilliseconds);
           previewHeader.style.borderTop = "none";
         }
       }
@@ -427,9 +436,10 @@
       this.classList.toggle("active");
       let content = this.nextElementSibling;
       let otherContent = coll[0].nextElementSibling;
+      var delayInMilliseconds = 500; 
+
       if (content.style.display == "block") {
-        var delayInMilliseconds = 500; 
-        $(this.nextElementSibling).slideUp('slow');
+        $(content).slideUp('slow');
         setTimeout(function() {
           content.style.display = "none";
         }, delayInMilliseconds);
@@ -440,16 +450,15 @@
         updateCustomizationTable();
   
         // show this section
-        $(this.nextElementSibling).slideDown('slow');
+        $(content).slideDown('slow');
         content.style.display = "block";
         previewHeader.style.borderTop = "1px solid black";
 
         // hide other section if this section is unhidden 
         if (otherContent.style.display == "flex"){
           coll[0].classList.toggle("active");
-          var delayInMilliseconds = 500; 
           
-          $(coll[0].nextElementSibling).slideUp('slow');
+          $(otherContent).slideUp('slow');
           setTimeout(function() {
             otherContent.style.display = "none";
           }, delayInMilliseconds);
