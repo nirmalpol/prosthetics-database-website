@@ -13,6 +13,9 @@
             "Testing0/Left/Teenager/part1.stl": [0, 0, 0],
             "Testing0/Left/Adult/part1.stl": [0, 0, 0]
         },
+        "Materials": ["PETG", "PLA", "ABS"],
+        "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+        "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "ImageSrc":  "../static/images/Recreational0.jpg",
 	    "ImageAlt":  "Biking"
     },
@@ -28,6 +31,9 @@
             "Testing1/Left/Child/part2.stl": [0, 80, 0],
             "Testing1/Left/Child/part3.stl": [0, 80, 0]
         },
+        "Materials": ["PETG", "PLA", "ABS"],
+        "Costs": [[11, 22, 33], [44, 55, 66], [77, 88, 99]],
+        "Print Times": [[99, 88, 77], [66, 55, 44], [33, 22, 11]],
         "ImageSrc":  "../static/images/Recreational1.jpg",
 	    "ImageAlt":  "Swimming"
     },
@@ -44,6 +50,9 @@
             "Testing2/Left/Child/part3.stl": [55, 35, -10],
             "Testing2/Left/Child/part4.stl": [0, 100, -20]
         },
+        "Materials": ["PETG", "PLA", "ABS"],
+        "Costs": [[111, 222, 333], [444, 555, 666], [777, 888, 999]],
+        "Print Times": [[999, 888, 777], [666, 555, 444], [333, 222, 111]],
         "ImageSrc":  "../static/images/Recreational2.jpg",
 	    "ImageAlt":  "Rowing"
     }

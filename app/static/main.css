@@ -209,6 +209,7 @@ li#navBarActive a:hover {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: large;
+  font-weight: bold;
 }
 
 .customizationFeatureText {
@@ -359,6 +360,7 @@ td {
   max-height: 50vh;
   outline: none;
   border: 3px solid black;
+  margin-bottom: 25px;
 }
 
 #info {
@@ -412,6 +414,31 @@ td {
   background-color: #f00;
   margin-top: 20px;
   padding: 10px;
+}
+
+#additionalInfoContainer {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+
+#additionalInfoTable {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+#additionalInfoTable th,
+td {
+  text-align: center;
+  padding: 10px;
+  width: 25%;
+}
+#additionalInfoTable tbody tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+#additionalInfoTable td:first-child {
+  font-weight: bold;
 }
 
 /*----------------- For footer ---------------------*/

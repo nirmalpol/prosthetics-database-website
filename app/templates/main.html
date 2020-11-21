@@ -41,9 +41,7 @@ endblock %} {% block body %}
 <div class="content">
   <!-- ------ Side of Body option ------ -->
   <div class="customizationFeature">
-    <div class="customizationFeatureTitle">
-      <b>Side of Body</b>
-    </div>
+    <div class="customizationFeatureTitle">Side of Body</div>
     <!-- ------ Side of body radio buttons ------ -->
     <div class="customizationFeatureRadio">
       <div class="customizationFeatureRadioText">
@@ -60,9 +58,7 @@ endblock %} {% block body %}
   <hr />
   <!-- ------ Size option ------ -->
   <div class="customizationFeature">
-    <div class="customizationFeatureTitle">
-      <b>Size</b>
-    </div>
+    <div class="customizationFeatureTitle">Size</div>
     <table id="customizationSizeTable"></table>
     <br />
     <div class="customizationFeatureText">
@@ -103,6 +99,14 @@ endblock %} {% block body %}
   </form>
 </div>
 <canvas id="previewCanvas"></canvas>
+<div id="additionalInfoContainer">
+  <div class="customizationFeatureTitle">Additional Information:</div>
+  <div class="customizatoinFeatureText">
+    Below are material cost and print time estimates of the selected design.
+    These values were taken using a Cura 3D printer as the reference.
+  </div>
+  <table id="additionalInfoTable"></table>
+</div>
 <!-- <p id="previewText">&emsp;&emsp;&emsp;&emsp;Please wait for the files to load below.</p> -->
 
 <!-- ------------------------------------ JS scripts ----------------------------------------- -->
@@ -250,6 +254,11 @@ endblock %} {% block body %}
       oldNumParts = data[activity]["numParts"];
       canvasLoadedFlag = true;
 
+      // create/fill in/initialize supporting info table
+      createAdditionalInfoTable();
+      let suppContainer = document.getElementById("additionalInfoContainer");
+      suppContainer.style.display = "block";
+
       // unhide canvas/buttons initially hidden canvas/preview header/buttons
       previewHeader.style.display = "flex";
       let canvasElement = document.getElementById("previewCanvas");
@@ -261,6 +270,9 @@ endblock %} {% block body %}
         let objToRemove = scene.getObjectByName(nameToRemove);
         scene.remove(objToRemove);
       }
+
+      // update supporting info table
+      updateAdditionalInfoTable();
     }
 
     // get files to preview and download.
@@ -305,6 +317,72 @@ endblock %} {% block body %}
       },
     });
   };
+
+  function createAdditionalInfoTable() {
+    let suppTable = document.getElementById("additionalInfoTable");
+    suppTable.innerHTML = "";
+    let row, col;
+    // load table header information
+    let thead = document.createElement("thead");
+    row = document.createElement("tr");
+    col = document.createElement("th");
+    col.innerHTML = ""; // for first empty header cell
+    row.appendChild(col);
+    for (let i = 0; i < data[activity]["Materials"].length; i++) {
+      col = document.createElement("th");
+      col.innerHTML = data[activity]["Materials"][i];
+      row.appendChild(col);
+    }
+    thead.appendChild(row);
+    suppTable.appendChild(thead);
+
+    // load table body information
+    size = document.querySelector('input[name="size"]:checked').value;
+    let sizeIndex = data[activity]["Size"].indexOf(size);
+
+    let tbody = document.createElement("tbody");
+    for (let i = 0; i < 2; i++) {
+      row = document.createElement("tr");
+      for (let j = 0; j < data[activity]["Materials"].length + 1; j++) {
+        col = document.createElement("td");
+        if (j == 0) {
+          if (i == 0) {
+            col.innerHTML = "Cost";
+          } else {
+            col.innerHTML = "Print Time";
+          }
+        } else {
+          if (i == 0) {
+            col.innerHTML = data[activity]["Costs"][sizeIndex][j - 1];
+          } else {
+            col.innerHTML = data[activity]["Print Times"][sizeIndex][j - 1];
+          }
+        }
+        row.appendChild(col);
+      }
+      tbody.appendChild(row);
+    }
+    suppTable.appendChild(tbody);
+  }
+
+  function updateAdditionalInfoTable() {
+    // Update additional info table upon Submit click
+    let suppTable = document.getElementById("additionalInfoTable");
+    size = document.querySelector('input[name="size"]:checked').value;
+    let sizeIndex = data[activity]["Size"].indexOf(size);
+
+    for (let i = 1; i < 3; i++) {
+      for (let j = 1; j < suppTable.rows[i].cells.length; j++) {
+        if (i == 1) {
+          suppTable.rows[i].cells[j].innerHTML =
+            data[activity]["Costs"][sizeIndex][j - 1];
+        } else {
+          suppTable.rows[i].cells[j].innerHTML =
+            data[activity]["Print Times"][sizeIndex][j - 1];
+        }
+      }
+    }
+  }
 </script>
 
 <!-- initialization to create dropdown and customization info table from the .json file -->
