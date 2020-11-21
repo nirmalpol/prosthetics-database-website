@@ -102,6 +102,7 @@ endblock %} {% block body %}
     <button id="downloadButton" type="submit">Download</button>
   </form>
 </div>
+<canvas id="previewCanvas"></canvas>
 <!-- <p id="previewText">&emsp;&emsp;&emsp;&emsp;Please wait for the files to load below.</p> -->
 
 <!-- ------------------------------------ JS scripts ----------------------------------------- -->
@@ -163,13 +164,12 @@ endblock %} {% block body %}
     scene.add(grid);
 
     //
+    var prevCanvas = document.getElementById("previewCanvas");
     var canvasContainer = document.getElementsByClassName("container")[0];
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({ canvas: prevCanvas, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
-    canvasContainer.appendChild(renderer.domElement);
-    renderer.domElement.id = "canvasDisplay";
 
     //
 
@@ -252,7 +252,7 @@ endblock %} {% block body %}
 
       // unhide canvas/buttons initially hidden canvas/preview header/buttons
       previewHeader.style.display = "flex";
-      let canvasElement = document.getElementById("canvasDisplay");
+      let canvasElement = document.getElementById("previewCanvas");
       canvasElement.style.display = "block";
     } else {
       for (let i = 1; i < oldNumParts + 1; i++) {

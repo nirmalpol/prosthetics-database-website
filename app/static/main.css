@@ -352,15 +352,13 @@ td {
 }
 
 /*------------- For Section 3 Preview ------------*/
-canvas {
-  display: block;
+#previewCanvas {
+  display: none;
   margin: 0 auto;
   max-width: 50em;
   max-height: 50vh;
   outline: none;
   border: 3px solid black;
-
-  display: none;
 }
 
 #info {
