@@ -154,7 +154,7 @@ li#navBarActive a:hover {
 }
 
 #optionImageContainer {
-  height: 100%;
+  height: 360px;
   width: 60%;
   display: flex;
   justify-content: center;
