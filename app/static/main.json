@@ -17,7 +17,9 @@
         "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
         "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "ImageSrc":  "../static/images/Basketball.jpg",
-	    "ImageAlt":  "Basketball"
+        "ImageAlt":  "Basketball",
+        "SizeImageSrc":  "../static/images/Basketball_Size.png",
+        "SizeImageAlt":  "Basketball Size"
     },
 
     "Biking": {
@@ -38,7 +40,9 @@
         "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
         "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "ImageSrc":  "../static/images/Biking.jpg",
-	    "ImageAlt":  "Biking"
+        "ImageAlt":  "Biking",
+        "SizeImageSrc":  "../static/images/Biking_Size.png",
+        "SizeImageAlt":  "Biking Size"
     },
 
     "Tennis": {
@@ -59,7 +63,9 @@
         "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
         "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "ImageSrc":  "../static/images/Tennis.jpg",
-	    "ImageAlt":  "Tennis"
+        "ImageAlt":  "Tennis",
+        "SizeImageSrc":  "../static/images/Tennis_Size.png",
+        "SizeImageAlt":  "Tennis Size"
     },
     "Lacrosse": {
         "Side of Body": ["Right", "Left"],
@@ -79,6 +85,8 @@
         "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
         "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "ImageSrc":  "../static/images/Lacrosse.jpg",
-	    "ImageAlt":  "Lacrosse"
+        "ImageAlt":  "Lacrosse",
+        "SizeImageSrc":  "../static/images/Lacrosse_Size.png",
+        "SizeImageAlt":  "Lacrosse Size"
     }
 }

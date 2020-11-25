@@ -64,10 +64,7 @@ endblock %} {% block body %}
     <div class="customizationFeatureText">
       Please refer to the below picture for descriptions for the length, width,
       and wrist diameter dimensions of the terminal device. <br />
-      <img
-        src="{{ url_for('static', filename = 'images/size.png') }}"
-        alt="armSize"
-      />
+      <img id="imageSize" />
     </div>
     <!-- ------ Size radio buttons ------ -->
     <div class="customizationFeatureRadio">
@@ -397,6 +394,7 @@ endblock %} {% block body %}
       // in fetch() to ensure synchronous
       createActivityDropdown();
       createCustomizationTable();
+      updateSizeImage();
     })
     .catch((err) => {
       console.log(err);
@@ -456,6 +454,14 @@ endblock %} {% block body %}
     }
     tbl.appendChild(tbody);
   }
+
+  function updateSizeImage() {
+    let sizeImage = document.getElementById("imageSize");
+    console.log(activity);
+    console.log(data[activity]["SizeImageSrc"]);
+    sizeImage.src = data[activity]["SizeImageSrc"];
+    sizeImage.alt = data[activity]["SizeImageAlt"];
+  }
 </script>
 
 <!-- <script type=text/javascript src="{{url_for('static', filename='js/collapsible.js')}}"></script> -->
@@ -508,6 +514,8 @@ endblock %} {% block body %}
     } else {
       // update customization table (based on activity in Section 1)
       updateCustomizationTable();
+      // update customization/size image
+      updateSizeImage();
 
       // show this section
       $(content).slideDown("slow");
