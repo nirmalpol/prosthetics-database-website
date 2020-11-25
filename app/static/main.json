@@ -1,59 +1,84 @@
 {
-    "Testing0": {
+    "Basketball": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Teenager", "Adult"],
+        "Size": ["Child", "Youth", "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "numParts": 1,
         "Coordinates": {
-            "Testing0/Right/Child/part1.stl": [0, 0, 0],
-            "Testing0/Right/Teenager/part1.stl": [0, 0, 0],
-            "Testing0/Right/Adult/part1.stl": [0, 0, 0],
-            "Testing0/Left/Child/part1.stl": [0, 0, 0],
-            "Testing0/Left/Teenager/part1.stl": [0, 0, 0],
-            "Testing0/Left/Adult/part1.stl": [0, 0, 0]
+            "Basketball/Right/Child/part1.stl": [0, 0, 0],
+            "Basketball/Right/Youth/part1.stl": [0, 0, 0],
+            "Basketball/Right/Adult/part1.stl": [0, 0, 0],
+            "Basketball/Left/Child/part1.stl": [0, 0, 0],
+            "Basketball/Left/Youth/part1.stl": [0, 0, 0],
+            "Basketball/Left/Adult/part1.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
         "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
         "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
-        "ImageSrc":  "../static/images/Recreational0.jpg",
-	    "ImageAlt":  "Biking"
+        "ImageSrc":  "../static/images/Basketball.jpg",
+	    "ImageAlt":  "Basketball"
     },
 
-    "Testing1": {
+    "Biking": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Teenager", "Adult"],
+        "Size": ["Child", "Youth", "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[11, 22, 33], [85, 321, 5], [77, 88, 99]],
-        "numParts": 3,
+        "numParts": 1,
         "Coordinates": {
-            "Testing1/Left/Child/part1.stl": [0, 80, 0],
-            "Testing1/Left/Child/part2.stl": [0, 80, 0],
-            "Testing1/Left/Child/part3.stl": [0, 80, 0]
+            "Biking/Right/Child/part1.stl": [0, 0, 0],
+            "Biking/Right/Youth/part1.stl": [0, 0, 0],
+            "Biking/Right/Adult/part1.stl": [0, 0, 0],
+            "Biking/Left/Child/part1.stl": [0, 0, 0],
+            "Biking/Left/Youth/part1.stl": [0, 0, 0],
+            "Biking/Left/Adult/part1.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
         "Costs": [[11, 22, 33], [44, 55, 66], [77, 88, 99]],
         "Print Times": [[99, 88, 77], [66, 55, 44], [33, 22, 11]],
-        "ImageSrc":  "../static/images/Recreational1.jpg",
-	    "ImageAlt":  "Swimming"
+        "ImageSrc":  "../static/images/Biking.jpg",
+	    "ImageAlt":  "Biking"
     },
 
-    "Testing2": {
+    "Tennis": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Teenager", "Adult"],
+        "Size": ["Child", "Youth", "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[3, 2, 1], [6, 5, 4], [9, 8, 7]],
-        "numParts": 4,
+        "numParts": 1,
         "Coordinates": {
-            "Testing2/Left/Child/part1.stl": [0, 165, 25],
-            "Testing2/Left/Child/part2.stl": [0, 50, 0],
-            "Testing2/Left/Child/part3.stl": [55, 35, -10],
-            "Testing2/Left/Child/part4.stl": [0, 100, -20]
+            "Tennis/Right/Child/part1.stl": [0, 0, 0],
+            "Tennis/Right/Youth/part1.stl": [0, 0, 0],
+            "Tennis/Right/Adult/part1.stl": [0, 0, 0],
+            "Tennis/Left/Child/part1.stl": [0, 0, 0],
+            "Tennis/Left/Youth/part1.stl": [0, 0, 0],
+            "Tennis/Left/Adult/part1.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
         "Costs": [[111, 222, 333], [444, 555, 666], [777, 888, 999]],
         "Print Times": [[999, 888, 777], [666, 555, 444], [333, 222, 111]],
-        "ImageSrc":  "../static/images/Recreational2.jpg",
-	    "ImageAlt":  "Rowing"
+        "ImageSrc":  "../static/images/Tennis.jpg",
+	    "ImageAlt":  "Tennis"
+    },
+    "Lacrosse": {
+        "Side of Body": ["Right", "Left"],
+        "Size": ["Child", "Youth", "Adult"],
+        "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
+        "Measurement": [[3, 2, 1], [6, 5, 4], [9, 8, 7]],
+        "numParts": 1,
+        "Coordinates": {
+            "Lacrosse/Right/Child/part1.stl": [0, 0, 0],
+            "Lacrosse/Right/Youth/part1.stl": [0, 0, 0],
+            "Lacrosse/Right/Adult/part1.stl": [0, 0, 0],
+            "Lacrosse/Left/Child/part1.stl": [0, 0, 0],
+            "Lacrosse/Left/Youth/part1.stl": [0, 0, 0],
+            "Lacrosse/Left/Adult/part1.stl": [0, 0, 0]
+        },
+        "Materials": ["PETG", "PLA", "ABS"],
+        "Costs": [[111, 222, 333], [444, 555, 666], [777, 888, 999]],
+        "Print Times": [[999, 888, 777], [666, 555, 444], [333, 222, 111]],
+        "ImageSrc":  "../static/images/Lacrosse.jpg",
+	    "ImageAlt":  "Lacrosse"
     }
 }
