@@ -457,8 +457,6 @@ endblock %} {% block body %}
 
   function updateSizeImage() {
     let sizeImage = document.getElementById("imageSize");
-    console.log(activity);
-    console.log(data[activity]["SizeImageSrc"]);
     sizeImage.src = data[activity]["SizeImageSrc"];
     sizeImage.alt = data[activity]["SizeImageAlt"];
   }

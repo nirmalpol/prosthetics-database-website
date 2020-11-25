@@ -41,7 +41,7 @@
         "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
         "ImageSrc":  "../static/images/Biking.jpg",
         "ImageAlt":  "Biking",
-        "SizeImageSrc":  "../static/images/Biking_Size.png",
+        "SizeImageSrc":  "../static/images/Biking_Size1.png",
         "SizeImageAlt":  "Biking Size"
     },
 
