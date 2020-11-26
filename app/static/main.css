@@ -255,11 +255,16 @@ td {
   padding: 10px;
   width: 25%;
 }
-#customizationSizeTable tr:nth-child(even) {
-  background-color: #dddddd;
-}
+
 #customizationSizeTable td:first-child {
   font-weight: bold;
+  border-right: 1px solid #000;
+  background-color: #d3d3d3;
+}
+#customizationSizeTable thead {
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+  background-color: #d3d3d3;
 }
 
 #submit {
@@ -434,11 +439,17 @@ td {
   padding: 10px;
   width: 25%;
 }
-#additionalInfoTable tbody tr:nth-child(odd) {
-  background-color: #dddddd;
-}
+
 #additionalInfoTable td:first-child {
   font-weight: bold;
+  border-right: 1px solid #000;
+  background-color: #d3d3d3;
+}
+
+#additionalInfoTable thead {
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+  background-color: #d3d3d3;
 }
 
 /*----------------- For footer ---------------------*/
