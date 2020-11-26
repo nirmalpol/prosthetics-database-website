@@ -1,3 +1,4 @@
+// threejs.org/license
 var Stats = function () {
 
 	var mode = 0;
