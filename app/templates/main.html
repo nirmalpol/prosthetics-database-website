@@ -384,9 +384,9 @@ endblock %} {% block body %}
 
 <!-- initialization to create dropdown and customization info table from the .json file -->
 <script>
-  let data = null;
-  let activities = [];
-  let activity = "";
+  var data = null;
+  var activities = [];
+  var activity = "";
   fetch("{{ url_for('static', filename = 'main.json') }}")
     .then((file) => file.json())
     .then((dataJSON) => {
