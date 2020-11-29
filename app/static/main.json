@@ -97,19 +97,19 @@
         "SizeImageSrc":  "../static/images/Tennis_Size.png",
         "SizeImageAlt":  "Tennis Size"
     },
-    "Lacrosse": {
+    "Ball Catching": {
         "Side of Body": ["Right", "Left"],
         "Size": ["Child", "Youth", "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[27, 16.5, 7], [32, 19, 8], [32, 19, 8]],
         "numParts": 1,
         "Coordinates": {
-            "Lacrosse/Right/Child/part1.stl": [0, 0, 0],
-            "Lacrosse/Right/Youth/part1.stl": [0, 0, 0],
-            "Lacrosse/Right/Adult/part1.stl": [0, 0, 0],
-            "Lacrosse/Left/Child/part1.stl": [0, 0, 0],
-            "Lacrosse/Left/Youth/part1.stl": [0, 0, 0],
-            "Lacrosse/Left/Adult/part1.stl": [0, 0, 0]
+            "Ball Catching/Right/Child/part1.stl": [0, 0, 0],
+            "Ball Catching/Right/Youth/part1.stl": [0, 0, 0],
+            "Ball Catching/Right/Adult/part1.stl": [0, 0, 0],
+            "Ball Catching/Left/Child/part1.stl": [0, 0, 0],
+            "Ball Catching/Left/Youth/part1.stl": [0, 0, 0],
+            "Ball Catching/Left/Adult/part1.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
         "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
