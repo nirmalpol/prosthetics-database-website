@@ -127,9 +127,10 @@ endblock %} {% block body %}
 <canvas id="previewCanvas"></canvas>
 <div id="additionalInfoContainer">
   <div class="customizationFeatureTitle">Additional Information:</div>
-  <div class="customizatoinFeatureText">
-    Below are material cost and print time estimates of the selected design.
-    These values were taken using a Cura 3D printer as the reference.
+  <div class="customizationFeatureText">
+    Below are material filament weights and material cost estimates of the
+    selected design for materials PLA, ABS, and PETG. These estimates were
+    obtained by assuming a printing infill of 20%.
   </div>
   <table id="additionalInfoTable"></table>
 </div>
@@ -373,15 +374,15 @@ endblock %} {% block body %}
         col = document.createElement("td");
         if (j == 0) {
           if (i == 0) {
-            col.innerHTML = "Cost (CAD)";
+            col.innerHTML = "Material Weight (g)";
           } else {
-            col.innerHTML = "Print Time (min)";
+            col.innerHTML = "Material Costs (CAD)";
           }
         } else {
           if (i == 0) {
-            col.innerHTML = data[activity]["Costs"][sizeIndex][j - 1];
+            col.innerHTML = data[activity]["Weight"][sizeIndex][j - 1];
           } else {
-            col.innerHTML = data[activity]["Print Times"][sizeIndex][j - 1];
+            col.innerHTML = data[activity]["Costs"][sizeIndex][j - 1];
           }
         }
         row.appendChild(col);
@@ -401,10 +402,10 @@ endblock %} {% block body %}
       for (let j = 1; j < suppTable.rows[i].cells.length; j++) {
         if (i == 1) {
           suppTable.rows[i].cells[j].innerHTML =
-            data[activity]["Costs"][sizeIndex][j - 1];
+            data[activity]["Weight"][sizeIndex][j - 1];
         } else {
           suppTable.rows[i].cells[j].innerHTML =
-            data[activity]["Print Times"][sizeIndex][j - 1];
+            data[activity]["Costs"][sizeIndex][j - 1];
         }
       }
     }

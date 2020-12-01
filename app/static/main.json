@@ -15,8 +15,8 @@
             "Basketball/Left/Adult/part1.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
-        "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-        "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+        "Weight": [[65, 65, 64], [79, 79, 77], [94, 94, 92]],
+        "Costs": [[1.49, 5.72, 1.27], [1.81, 6.95, 1.54], [2.16, 8.27, 1.84]],
         "ImageSrc":  "../static/images/Basketball.jpg",
         "ImageAlt":  "Basketball",
         "SizeImageSrc":  "../static/images/Basketball_Size.png",
@@ -57,8 +57,8 @@
             "Biking/Left/Adult/part4.stl": [7.75, 10.5, 4]
         },
         "Materials": ["PETG", "PLA", "ABS"],
-        "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-        "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+        "Weight": [[81, 81, 79], [81, 81, 79], [81, 81, 79]],
+        "Costs": [[1.86, 7.12, 1.57], [1.86, 7.12, 1.57], [1.86, 7.12, 1.57]],
         "ImageSrc":  "../static/images/Biking.jpg",
         "ImageAlt":  "Biking",
         "SizeImageSrc":  "../static/images/Biking_Size1.png",
@@ -93,8 +93,8 @@
             "Ping-Pong/Left/Adult/part3.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
-        "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-        "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+        "Costs": [[1.77, 6.77, 1.50], [1.77, 6.77, 1.50], [1.77, 6.77, 1.50]],
+        "Weight": [[77, 77, 75], [77, 77, 75], [77, 77, 75]],
         "ImageSrc":  "../static/images/Ping-Pong.jpg",
         "ImageAlt":  "Ping-Pong",
         "SizeImageSrc":  "../static/images/Racquet_Size.png",
@@ -116,8 +116,8 @@
             "Ball Catching/Left/Adult/part1.stl": [0, 0, 0]
         },
         "Materials": ["PETG", "PLA", "ABS"],
-        "Costs": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-        "Print Times": [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+        "Costs": [[2.16, 8.27, 1.84], [3.17, 12.13, 2.69], [3.17, 12.13, 2.69]],
+        "Weight": [[94, 94, 92], [138, 138, 135], [138, 138, 135]],
         "ImageSrc":  "../static/images/Lacrosse.jpg",
         "ImageAlt":  "Lacrosse",
         "SizeImageSrc":  "../static/images/Lacrosse_Size.png",
