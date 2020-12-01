@@ -468,12 +468,12 @@ endblock %} {% block body %}
 
     // load table body information
     let tbody = document.createElement("tbody");
-    for (let i = 0; i < data[activity]["Size"].length; i++) {
+    for (let i = 0; i < data[activity]["SizeLabels"].length; i++) {
       row = document.createElement("tr");
       for (let j = 0; j < data[activity]["Dimension"].length + 1; j++) {
         col = document.createElement("td");
         if (j == 0) {
-          col.innerHTML = data[activity]["Size"][i];
+          col.innerHTML = data[activity]["SizeLabels"][i];
         } else {
           col.innerHTML = data[activity]["Measurement"][i][j - 1];
         }
@@ -566,9 +566,13 @@ endblock %} {% block body %}
     let tbl = document.getElementById("customizationSizeTable");
 
     for (let i = 1; i < tbl.rows.length; i++) {
-      for (let j = 1; j < tbl.rows[i].cells.length; j++) {
-        tbl.rows[i].cells[j].innerHTML =
-          data[activity]["Measurement"][i - 1][j - 1];
+      for (let j = 0; j < tbl.rows[i].cells.length; j++) {
+        if (j == 0) {
+          tbl.rows[i].cells[j].innerHTML = data[activity]["SizeLabels"][i - 1];
+        } else {
+          tbl.rows[i].cells[j].innerHTML =
+            data[activity]["Measurement"][i - 1][j - 1];
+        }
       }
     }
   }

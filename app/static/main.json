@@ -1,7 +1,8 @@
 {
     "Basketball": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Youth", "Adult"],
+        "SizeLabels": ["Child (Ages 5-8)", "Youth (Ages 9-12)", "Adult (Ages 13+)"],
+        "Size": ["Child", "Youth" , "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[14.1, 17.3, 5.18], [15.1, 18.6, 5.59], [16.2, 20, 6]],
         "numParts": 1,
@@ -24,7 +25,8 @@
 
     "Biking": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Youth", "Adult"],
+        "SizeLabels": ["Child (Ages 5-12)", "Youth (Ages 13-18)", "Adult (Ages 18+)"],
+        "Size": ["Child", "Youth" , "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[6.5, 10, 7], [6.5, 10, 7], [6.5, 10, 7]],
         "numParts": 4,
@@ -65,7 +67,8 @@
 
     "Ping-Pong": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Youth", "Adult"],
+        "SizeLabels": ["Child (Ages 5-12)", "Youth (Ages 13-18)", "Adult (Ages 18+)"],
+        "Size": ["Child", "Youth" , "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[8.5, 6.5, 6], [8.5, 6.5, 6], [8.5, 6.5, 6]],
         "numParts": 3,
@@ -99,7 +102,8 @@
     },
     "Ball Catching": {
         "Side of Body": ["Right", "Left"],
-        "Size": ["Child", "Youth", "Adult"],
+        "SizeLabels": ["Child (Ages 5-12)", "Youth (Ages 13-18)", "Adult (Ages 18+)"],
+        "Size": ["Child", "Youth" , "Adult"],
         "Dimension": ["Length (cm)", "Width (cm)", "Wrist Diameter (cm)"],
         "Measurement": [[27, 16.5, 7], [32, 19, 8], [32, 19, 8]],
         "numParts": 1,
