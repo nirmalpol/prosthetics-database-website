@@ -21,7 +21,6 @@ def index():
     will return the actual file paths once the user clicks the download button.'''
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-    global allFiles
     data = request.get_json()
     
     filename = data[0]
@@ -31,17 +30,29 @@ def handle_data():
     allFiles = filename.split('/')
     allFiles.insert(0, "app")
 
-    return jsonify(status="success", data=data)
+    txt_file = open("filepaths.txt", "w")
 
-@app.route('/return_files/', methods=['POST'])
-def return_files():
-
-    global allFiles
-    
     file_path = os.getcwd()
     
     for i in range(len(allFiles)):
         file_path = os.path.join(file_path, allFiles[i])
+    
+    txt_file.write(file_path)
+    txt_file.close()
+
+    return jsonify(status="success", data=[data, allFiles])
+
+@app.route('/return_files/', methods=['POST'])
+def return_files():
+
+
+    # file_path = os.getcwd()
+    
+    # for i in range(len(allFiles)):
+    #     file_path = os.path.join(file_path, allFiles[i])
+
+    txt_file = open("filepaths.txt", "r")
+    file_path = txt_file.read()
     
     try:
         # For MAC OS and Linux
@@ -53,6 +64,7 @@ def return_files():
         return send_file(shutil.make_archive('DesignFiles', 'zip', file_path+"\\"),
                     attachment_filename='DesignFiles.zip',
                     as_attachment=True)
+
 
 @app.route('/About')
 def toAboutPage():
