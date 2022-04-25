@@ -26,7 +26,7 @@ When the user comes to the page, they are greeted with a short "How to use" that
   <img 
     width="500"
     height="300"
-    src="/Assets/choose_an_activity.png"
+    src="/assets/choose_an_activity.png"
   >
 </p>
 
@@ -39,7 +39,7 @@ After selecting the recreational activity, the user can now select which side of
 <p align="center">
   <img 
     width="500"
-    height="300"
+    height="500"
     src="/assets/customization_options.png"
   >
 </p>
@@ -53,7 +53,7 @@ The user receives a link to the 3D file for printing by clicking the download bu
 <p align="center">
   <img 
     width="500"
-    height="500"
+    height="600"
     src="/assets/download_file.png"
   >
 </p>
