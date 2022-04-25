@@ -20,7 +20,7 @@ The prototype can be found at the following link: https://terminaldevicedatabase
   <img 
     width="300"
     height="300"
-    src="/assets/choose_an_activity.png"
+    src="/Assets/choose_an_activity.png"
   >
 </p>
 
