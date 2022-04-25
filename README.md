@@ -26,7 +26,7 @@ When the user comes to the page, they are greeted with a short "How to use" that
   <img 
     width="500"
     height="300"
-    src="/assets/choose_an_activity.png"
+    src="/Assets/choose_an_activity.png"
   >
 </p>
 
