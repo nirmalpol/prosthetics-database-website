@@ -16,13 +16,51 @@ A website to provide **open-source** 3D-printable **recreational terminal device
 
 The prototype can be found at the following link: https://terminaldevicedatabaseapp.herokuapp.com/
 
+Website was completed in html, css, and javascript languages using the Flask application.
+
+### Choosing an Recreational Activity
+
+When the user comes to the page, they are greeted with a short "How to use" that is straightforward and simple. The user first begins by selecting what recreational activity they are interested in so that a suitable prosthetic can be provided for that activity.
+
 <p align="center">
   <img 
-    width="300"
+    width="500"
     height="300"
     src="/assets/choose_an_activity.png"
   >
 </p>
+
+The images of the recreational activity dynamically change once the user selects an activity. This helps the user correctly identify their selection so they do not misinterpret their selection.
+
+### Customization Options
+
+After selecting the recreational activity, the user can now select which side of the body and what size they need to customize the prosthetic file. Once the customizations are complete, the user can click submit and receive their 3D STL file for printing.
+
+<p align="center">
+  <img 
+    width="500"
+    height="300"
+    src="/assets/customization_options.png"
+  >
+</p>
+
+The customization table for size is presented to explain the different measurements available and help the user understand the relevance to their age so they understand which size to select. The customization table changes values based on selected recreational activity. The diagram is a cartoon mockup that visually show which dimension the measurements are referring in the table to help guide the user.
+
+### Preview/Downloading
+
+The user receives a link to the 3D file for printing by clicking the download button.
+
+<p align="center">
+  <img 
+    width="500"
+    height="500"
+    src="/assets/download_file.png"
+  >
+</p>
+
+The user is also presented with a canvas preview based on a cross-platform 3D modeling open-source library of Three.js. This allows the users to rotate, zoom in/out, and drag the file around so that the user can verify and see their file prior to downloading.
+
+The cost and time details are mentioned for every material depending on chosen recreational activity and selected customization features.
 
 ## Bugs/Defects
 
