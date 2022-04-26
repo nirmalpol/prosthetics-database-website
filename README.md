@@ -14,7 +14,7 @@ A website to provide **open-source** 3D-printable **recreational terminal device
 
 ## Project Description
 
-The prototype can be found at the following link: https://terminaldevicedatabaseapp.herokuapp.com/
+The prototype can be found at the following link (note it may take a few seconds to load): https://terminaldevicedatabaseapp.herokuapp.com/
 
 Website was completed in html, css, and javascript languages using the Flask application.
 
