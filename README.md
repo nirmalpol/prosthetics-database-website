@@ -4,7 +4,7 @@ This is a project completed in the course BME489: Biomedical Systems Engineering
 
 ## Project Motivation
 
-There are millions of people living with upper extremity amputations. Access to terminal end prosthetic devices is limited due to their high cost and it is not covered by provincial insurance (OHIP). Furthermore, there is a sharp learning curve required for users who want a customized/customizable prosthetic devices. The customization aspect (e.g. size, shape, load-bearing attributes, applications) is important as it can allow users to participate in various different activities (prosthetic for holding tennis racket vs prosthetic for basketball). 
+There are millions of people living with upper extremity amputations. Access to terminal end prosthetic devices is limited due to their high cost and it is often times not covered by insurance. Furthermore, there is a sharp learning curve required for users who want a customized/customizable prosthetic devices. The customization aspect (e.g. size, shape, load-bearing attributes, applications) is important as it can allow users to participate in various different activities (prosthetic for holding tennis racket vs prosthetic for basketball). 
 
 As a result, an open source database full of customizable prosthetic CAD files is a desirable cost-effective solution for individuals who would like to 3D print their own simple terminal end prosthetic devices.
 
